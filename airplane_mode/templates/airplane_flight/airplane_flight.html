@@ -1,27 +1,21 @@
 {% extends "templates/web.html" %}
-
 {% block page_content %}
 <div class="max-w-3xl mx-auto py-6">
-
     <a href="/" class="text-sm text-gray-500 hover:underline">Home</a>
-
     <h1 class="text-2xl font-semibold mt-4">{{ doc.name }}</h1>
-
     <h2 class="text-xl font-semibold mt-6">Flight Details</h2>
-
     <ul class="list-disc ml-6 mt-3 text-gray-700">
         <li>Airline: {{ doc.airplane }}</li>
         <li>{{ doc.source_airport_code }} → {{ doc.destination_airport_code }}</li>
         <li>{{ frappe.utils.format_date(doc.date_of_departure, "YYYY-MM-dd") }} | {{ doc.time_of_departure }}</li>
-        <li>Duration: {{ frappe.utils.format_duration(doc.duration)  }}</li>
+        <li>Duration: {{ frappe.utils.format_duration(doc.duration) }}</li>
     </ul>
-
-    <a href="/book-flight-ticket-web-form/new?flight={{doc.name}}&flight_price=10000"
-    class="btn btn-primary">
-        Book Flight
-    </a>
-
-
-
+    
+    <form method="GET" action="/book-ticket">
+        <input type="hidden" name="flight" value="{{ doc.name }}">
+        <button type="submit" class="mt-6 inline-block bg-blue-600 text-white px-4 py-2 rounded">
+            Book Flight
+        </button>
+    </form>
 </div>
 {% endblock %}

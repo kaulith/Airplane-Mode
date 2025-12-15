@@ -7,8 +7,12 @@
  "engine": "InnoDB",
  "field_order": [
   "model",
+  "capacity",
+  "column_break_lzjr",
   "airline",
-  "capacity"
+  "website",
+  "section_break_zqho",
+  "initial_audit_completed"
  ],
  "fields": [
   {
@@ -33,12 +37,34 @@
    "label": "Capacity",
    "non_negative": 1,
    "reqd": 1
+  },
+  {
+   "fieldname": "column_break_lzjr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website",
+   "options": "URL"
+  },
+  {
+   "fieldname": "section_break_zqho",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "depends_on": "frappe.user_roles.includes(\"Airport Authority Personnel\");",
+   "fieldname": "initial_audit_completed",
+   "fieldtype": "Check",
+   "label": "Initial Audit Completed",
+   "read_only_depends_on": "eval:!frappe.user_roles.includes(\"Airport Authority Personnel\")"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-24 16:28:56.384785",
+ "modified": "2025-12-15 11:01:37.153046",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane",
@@ -56,6 +82,28 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Fleet Manager",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Travel Agent"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Airport Authority Personnel",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Flight Crew Member"
   }
  ],
  "row_format": "Dynamic",

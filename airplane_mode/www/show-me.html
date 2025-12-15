@@ -1,62 +1,17 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Show Me Colors</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: #f3f3f3;
-    }
+<html>
+  <head>
+    <title>Show Me Colors</title>
+    <meta charset="utf-8">
+  </head>
 
-    .container {
-      text-align: center;
-    }
-
-    #color-box {
-      width: 480px;
-      height: 240px;
-      border-radius: 8px;
-      border: 1px solid rgba(0,0,0,0.12);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-      margin-bottom: 16px;
-    }
-
-    .label {
-      font-size: 18px;
-      color: #333;
-    }
-
-    .hint {
-      margin-top: 8px;
-      color: #666;
-      font-size: 13px;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div id="color-box" role="img" aria-label="color preview"></div>
-    <div class="label">Color: <span id="color-name">black</span></div>
-    <div class="hint">Use <code>?color=red</code> or any valid CSS color name or hex like <code>?color=#ff8800</code></div>
+  <body style="display:flex;height:100vh;">
+  <div style="
+    width:400px;
+    height:200px;
+    background-color: {{ frappe.form_dict.color or 'black' }};
+  ">
   </div>
-
-  <script>
-    (function () {
-      const params = new URLSearchParams(window.location.search);
-      const color = params.get('color') || 'black';
-
-      const box = document.getElementById('color-box');
-      box.style.background = color;
-
-      document.getElementById('color-name').textContent = color;
-    })();
-  </script>
 </body>
+
 </html>

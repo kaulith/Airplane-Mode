@@ -20,13 +20,13 @@
   "date_of_departure",
   "duration",
   "column_break_eamd",
-  "time_of_deaprture",
+  "time_of_departure",
   "section_break_mhew",
   "route",
   "title",
   "column_break_kfst",
   "is_published",
-  "content"
+  "website_description"
  ],
  "fields": [
   {
@@ -34,7 +34,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Airplane",
-   "options": "Airline",
+   "options": "Airplane",
    "reqd": 1
   },
   {
@@ -42,13 +42,6 @@
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "Date of Departure",
-   "reqd": 1
-  },
-  {
-   "fieldname": "time_of_deaprture",
-   "fieldtype": "Time",
-   "in_list_view": 1,
-   "label": "Time of Deaprture",
    "reqd": 1
   },
   {
@@ -120,12 +113,13 @@
   {
    "fieldname": "route",
    "fieldtype": "Data",
-   "label": "Route"
+   "label": "Route",
+   "unique": 1
   },
   {
    "fieldname": "title",
    "fieldtype": "Data",
-   "label": "Web Page Title"
+   "label": "Website Title"
   },
   {
    "fieldname": "column_break_kfst",
@@ -138,9 +132,16 @@
    "label": "Is Published"
   },
   {
-   "fieldname": "content",
-   "fieldtype": "Text Editor",
-   "label": "Web Page Content"
+   "fieldname": "website_description",
+   "fieldtype": "Small Text",
+   "label": "Website Description"
+  },
+  {
+   "fieldname": "time_of_departure",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Time of Departure",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
@@ -153,7 +154,7 @@
    "link_fieldname": "flight"
   }
  ],
- "modified": "2025-12-02 16:57:56.687470",
+ "modified": "2025-12-15 10:29:05.273928",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Flight",
@@ -170,6 +171,29 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "write": 1
+  },
+  {
+   "if_owner": 1,
+   "read": 1,
+   "role": "Travel Agent"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Airport Authority Personnel",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Flight Crew Member"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Fleet Manager",
    "write": 1
   }
  ],

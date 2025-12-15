@@ -1,0 +1,23 @@
+:root {
+    --primary: #3B82F6; 
+}
+
+body {
+    background: #ffffff !important;
+}
+
+a {
+    color: var(--primary);
+}
+
+.btn-primary,
+.button-primary,
+.bg-blue-600 {
+    background: var(--primary) !important;
+    color: #fff !important;
+}
+
+.btn-primary:hover,
+.button-primary:hover {
+    opacity: 0.9;
+}
