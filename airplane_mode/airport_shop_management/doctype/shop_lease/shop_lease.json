@@ -1,0 +1,129 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "[contract_id]",
+ "creation": "2025-12-17 15:57:31.598807",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "shop_lease_section",
+  "shop",
+  "tenant",
+  "airport",
+  "status",
+  "contract_id",
+  "column_break_xlfy",
+  "lease_start_date",
+  "lease_end_date",
+  "monthly_rent",
+  "security_deposit",
+  "billing_day"
+ ],
+ "fields": [
+  {
+   "fieldname": "shop",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Shop",
+   "options": "Shop",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tenant",
+   "options": "Shop Tenant",
+   "reqd": 1
+  },
+  {
+   "fieldname": "lease_start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Lease Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "lease_end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Lease End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "monthly_rent",
+   "fieldtype": "Currency",
+   "label": "Monthly Rent",
+   "reqd": 1
+  },
+  {
+   "fieldname": "security_deposit",
+   "fieldtype": "Currency",
+   "label": "Security Deposit"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nExpired\nTerminated"
+  },
+  {
+   "fieldname": "shop_lease_section",
+   "fieldtype": "Section Break",
+   "label": "Shop Lease"
+  },
+  {
+   "fetch_from": "shop.airport",
+   "fieldname": "airport",
+   "fieldtype": "Link",
+   "label": "Airport",
+   "options": "Shop"
+  },
+  {
+   "fieldname": "billing_day",
+   "fieldtype": "Int",
+   "label": "Billing Day",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_xlfy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contract_id",
+   "fieldtype": "Data",
+   "label": "Contract ID",
+   "options": "LCON-.YYYY.-.#####\n",
+   "read_only": 1,
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-12-17 16:32:17.554101",
+ "modified_by": "Administrator",
+ "module": "Airport Shop Management",
+ "name": "Shop Lease",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

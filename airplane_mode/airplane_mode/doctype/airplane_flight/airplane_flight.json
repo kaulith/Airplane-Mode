@@ -21,12 +21,13 @@
   "duration",
   "column_break_eamd",
   "time_of_departure",
+  "gate_number",
   "section_break_mhew",
   "route",
-  "title",
   "column_break_kfst",
   "is_published",
-  "website_description"
+  "crew_members_section",
+  "flight_crew"
  ],
  "fields": [
   {
@@ -108,18 +109,14 @@
   },
   {
    "fieldname": "section_break_mhew",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Web Section"
   },
   {
    "fieldname": "route",
    "fieldtype": "Data",
    "label": "Route",
    "unique": 1
-  },
-  {
-   "fieldname": "title",
-   "fieldtype": "Data",
-   "label": "Website Title"
   },
   {
    "fieldname": "column_break_kfst",
@@ -132,16 +129,27 @@
    "label": "Is Published"
   },
   {
-   "fieldname": "website_description",
-   "fieldtype": "Small Text",
-   "label": "Website Description"
-  },
-  {
    "fieldname": "time_of_departure",
    "fieldtype": "Time",
    "in_list_view": 1,
    "label": "Time of Departure",
    "reqd": 1
+  },
+  {
+   "fieldname": "crew_members_section",
+   "fieldtype": "Section Break",
+   "label": "Crew Members"
+  },
+  {
+   "fieldname": "flight_crew",
+   "fieldtype": "Table",
+   "label": "Flight Crew",
+   "options": "Airplane Flight Crew Members"
+  },
+  {
+   "fieldname": "gate_number",
+   "fieldtype": "Data",
+   "label": "Gate Number"
   }
  ],
  "grid_page_length": 50,
@@ -154,7 +162,7 @@
    "link_fieldname": "flight"
   }
  ],
- "modified": "2025-12-15 10:29:05.273928",
+ "modified": "2025-12-17 13:10:05.056042",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Flight",
@@ -202,6 +210,5 @@
  "rows_threshold_for_grid_search": 20,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
- "website_search_field": "title"
+ "states": []
 }

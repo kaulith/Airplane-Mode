@@ -21,6 +21,7 @@
   "departure_date",
   "departure_time",
   "seat",
+  "gate_number",
   "column_break_lwiz",
   "duration_of_flight",
   "amended_from",
@@ -146,13 +147,19 @@
   {
    "fieldname": "column_break_bnle",
    "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "flight.gate_number",
+   "fieldname": "gate_number",
+   "fieldtype": "Data",
+   "label": "Gate Number"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-12-15 10:30:04.122798",
+ "modified": "2025-12-17 13:15:09.615495",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Ticket",
