@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{shop_name}-{shop_number}",
  "creation": "2025-12-17 15:19:53.696741",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -8,10 +9,13 @@
   "shop_section",
   "shop_number",
   "shop_name",
+  "status",
+  "rent",
+  "location",
+  "column_break_rocc",
   "airport",
   "area",
-  "status",
-  "rent"
+  "location_of_shop"
  ],
  "fields": [
   {
@@ -19,24 +23,21 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Airport",
-   "options": "Airport",
-   "reqd": 1
+   "options": "Airport"
   },
   {
    "description": "sq ft",
    "fieldname": "area",
    "fieldtype": "Float",
    "in_list_view": 1,
-   "label": "Area ",
-   "reqd": 1
+   "label": "Area "
   },
   {
    "fieldname": "status",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Status",
-   "options": "Available\nLeased\nUnder Maintenance",
-   "reqd": 1
+   "options": "Available\nLeased\nUnder Maintenance"
   },
   {
    "fieldname": "shop_section",
@@ -59,15 +60,30 @@
    "fieldname": "rent",
    "fieldtype": "Currency",
    "label": "Rent"
+  },
+  {
+   "fieldname": "location_of_shop",
+   "fieldtype": "Geolocation",
+   "label": "Geo Location"
+  },
+  {
+   "fieldname": "column_break_rocc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Small Text",
+   "label": "Location"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-17 16:17:54.766797",
+ "modified": "2025-12-19 11:35:00.565918",
  "modified_by": "Administrator",
  "module": "Airport Shop Management",
  "name": "Shop",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

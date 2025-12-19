@@ -22,7 +22,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Crew Member",
-   "options": "Crew Members"
+   "options": "Crew Member"
   },
   {
    "fetch_from": "crew_member.first_name",
@@ -43,10 +43,10 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-12-17 13:02:25.513810",
+ "modified": "2025-12-18 13:14:08.024223",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
- "name": "Airplane Flight Crew Members",
+ "name": "Airplane Flight Crew Member",
  "owner": "Administrator",
  "permissions": [],
  "row_format": "Dynamic",

@@ -5,12 +5,5 @@
 from frappe.model.document import Document
 
 
-class ShopLease(Document):
-	def validate(self):
-		pass
-
-	def on_submit(self):
-		self.status = "Leased"
-
-	def on_cancel(self):
-		self.status = "Available"
+class ShopLeaseContract(Document):
+	pass

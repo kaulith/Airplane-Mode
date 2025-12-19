@@ -5,7 +5,7 @@
 from frappe.model.document import Document
 
 
-class CrewMembers(Document):
+class CrewMember(Document):
 	def before_save(self):
 		if self.last_name:
 			self.full_name = f"{self.first_name} {self.last_name}"

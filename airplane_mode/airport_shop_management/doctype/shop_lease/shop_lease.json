@@ -1,33 +1,31 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "[contract_id]",
+ "autoname": "format:CONTRACT-.####",
  "creation": "2025-12-17 15:57:31.598807",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "shop_lease_section",
-  "shop",
+  "tenant_details_section",
   "tenant",
-  "airport",
+  "email",
+  "column_break_auce",
+  "tenant_name",
+  "phone",
+  "contract_details_section",
+  "start_date",
   "status",
-  "contract_id",
-  "column_break_xlfy",
-  "lease_start_date",
-  "lease_end_date",
+  "column_break_eckr",
+  "end_date",
+  "payment_due_date",
+  "shops_section",
+  "shops",
+  "rent_details_section",
   "monthly_rent",
-  "security_deposit",
-  "billing_day"
+  "column_break_shiy",
+  "total_base_rent"
  ],
  "fields": [
-  {
-   "fieldname": "shop",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Shop",
-   "options": "Shop",
-   "reqd": 1
-  },
   {
    "fieldname": "tenant",
    "fieldtype": "Link",
@@ -37,18 +35,88 @@
    "reqd": 1
   },
   {
-   "fieldname": "lease_start_date",
-   "fieldtype": "Date",
-   "in_list_view": 1,
-   "label": "Lease Start Date",
+   "fieldname": "tenant_details_section",
+   "fieldtype": "Section Break",
+   "label": "Tenant Details"
+  },
+  {
+   "fetch_from": "tenant.tenant_name",
+   "fieldname": "tenant_name",
+   "fieldtype": "Data",
+   "label": "Tenant Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "tenant.email",
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "tenant.phone",
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_auce",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contract_details_section",
+   "fieldtype": "Section Break",
+   "label": "Contract Details"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Data",
+   "label": "Start Date",
    "reqd": 1
   },
   {
-   "fieldname": "lease_end_date",
+   "fieldname": "end_date",
    "fieldtype": "Date",
-   "in_list_view": 1,
-   "label": "Lease End Date",
+   "label": "End Date",
    "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nActive\nExpired\nTerminated"
+  },
+  {
+   "fieldname": "payment_due_date",
+   "fieldtype": "Int",
+   "label": "Payment Due Date"
+  },
+  {
+   "fieldname": "column_break_eckr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shops_section",
+   "fieldtype": "Section Break",
+   "label": "Shops"
+  },
+  {
+   "fieldname": "shops",
+   "fieldtype": "Table",
+   "label": "Shops",
+   "options": "Shop Lease Contract"
+  },
+  {
+   "fieldname": "rent_details_section",
+   "fieldtype": "Section Break",
+   "label": "Rent Details"
+  },
+  {
+   "fieldname": "total_base_rent",
+   "fieldtype": "Currency",
+   "label": "Total Base Rent",
+   "read_only": 1
   },
   {
    "fieldname": "monthly_rent",
@@ -57,55 +125,18 @@
    "reqd": 1
   },
   {
-   "fieldname": "security_deposit",
-   "fieldtype": "Currency",
-   "label": "Security Deposit"
-  },
-  {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "Active\nExpired\nTerminated"
-  },
-  {
-   "fieldname": "shop_lease_section",
-   "fieldtype": "Section Break",
-   "label": "Shop Lease"
-  },
-  {
-   "fetch_from": "shop.airport",
-   "fieldname": "airport",
-   "fieldtype": "Link",
-   "label": "Airport",
-   "options": "Shop"
-  },
-  {
-   "fieldname": "billing_day",
-   "fieldtype": "Int",
-   "label": "Billing Day",
-   "reqd": 1
-  },
-  {
-   "fieldname": "column_break_xlfy",
+   "fieldname": "column_break_shiy",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "contract_id",
-   "fieldtype": "Data",
-   "label": "Contract ID",
-   "options": "LCON-.YYYY.-.#####\n",
-   "read_only": 1,
-   "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-17 16:32:17.554101",
+ "modified": "2025-12-18 13:04:06.036172",
  "modified_by": "Administrator",
  "module": "Airport Shop Management",
  "name": "Shop Lease",
- "naming_rule": "By \"Naming Series\" field",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

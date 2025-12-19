@@ -9,9 +9,10 @@
   "tenant_name",
   "email",
   "phone",
+  "contact_person",
+  "column_break_luvw",
   "company_name",
-  "address",
-  "is_active"
+  "address"
  ],
  "fields": [
   {
@@ -50,16 +51,19 @@
    "label": "Shop Tenant"
   },
   {
-   "default": "0",
-   "fieldname": "is_active",
-   "fieldtype": "Check",
-   "label": "Is Active"
+   "fieldname": "contact_person",
+   "fieldtype": "Data",
+   "label": "Contact Person"
+  },
+  {
+   "fieldname": "column_break_luvw",
+   "fieldtype": "Column Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-17 16:18:37.726355",
+ "modified": "2025-12-18 10:43:33.147301",
  "modified_by": "Administrator",
  "module": "Airport Shop Management",
  "name": "Shop Tenant",

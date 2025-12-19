@@ -6,6 +6,7 @@
  "field_order": [
   "first_name",
   "last_name",
+  "column_break_ktqj",
   "full_name",
   "date_of_birth"
  ],
@@ -34,6 +35,10 @@
    "fieldtype": "Data",
    "label": "Full Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ktqj",
+   "fieldtype": "Column Break"
   }
  ],
  "grid_page_length": 50,
@@ -44,7 +49,7 @@
    "link_fieldname": "passenger"
   }
  ],
- "modified": "2025-12-01 16:05:19.268244",
+ "modified": "2025-12-18 13:11:24.176598",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Flight Passenger",

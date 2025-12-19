@@ -81,7 +81,7 @@
  "modified": "2025-12-17 12:35:46.404682",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
- "name": "Crew Members",
+ "name": "Crew Member",
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [

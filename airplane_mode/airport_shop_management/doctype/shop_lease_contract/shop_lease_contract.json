@@ -1,0 +1,82 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-12-17 18:05:30.507613",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "contract_section",
+  "shop",
+  "shop_name",
+  "shop_number",
+  "column_break_jokf",
+  "rent",
+  "area"
+ ],
+ "fields": [
+  {
+   "fieldname": "shop",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Shop",
+   "options": "Shop"
+  },
+  {
+   "fetch_from": "shop.shop_name",
+   "fieldname": "shop_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Shop Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "shop.shop_number",
+   "fieldname": "shop_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Shop Number",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "shop.rent",
+   "fieldname": "rent",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Rent",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "shop.area",
+   "fieldname": "area",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Area",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_jokf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contract_section",
+   "fieldtype": "Section Break",
+   "label": "Contract"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-12-18 13:40:30.952508",
+ "modified_by": "Administrator",
+ "module": "Airport Shop Management",
+ "name": "Shop Lease Contract",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

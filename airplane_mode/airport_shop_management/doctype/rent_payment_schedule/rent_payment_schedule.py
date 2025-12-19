@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class AirplaneFlightCrewMembers(Document):
+class RentPaymentSchedule(Document):
 	pass
