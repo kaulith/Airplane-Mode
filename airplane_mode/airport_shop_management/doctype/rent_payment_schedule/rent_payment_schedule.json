@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:RPS-{lease_contract}-{payment_period}",
  "creation": "2025-12-19 10:55:56.177925",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -50,10 +51,12 @@
    "reqd": 1
   },
   {
+   "fetch_from": "lease_contract.monthly_rent",
    "fieldname": "expected_amount",
    "fieldtype": "Currency",
    "in_list_view": 1,
    "label": "Expected Amount",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -112,10 +115,11 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-19 11:33:29.633518",
+ "modified": "2025-12-19 20:37:27.350702",
  "modified_by": "Administrator",
  "module": "Airport Shop Management",
  "name": "Rent Payment Schedule",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

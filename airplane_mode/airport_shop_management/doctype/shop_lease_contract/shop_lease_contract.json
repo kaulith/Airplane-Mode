@@ -11,7 +11,7 @@
   "shop_name",
   "shop_number",
   "column_break_jokf",
-  "rent",
+  "base_rent",
   "area"
  ],
  "fields": [
@@ -39,14 +39,6 @@
    "read_only": 1
   },
   {
-   "fetch_from": "shop.rent",
-   "fieldname": "rent",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Rent",
-   "read_only": 1
-  },
-  {
    "fetch_from": "shop.area",
    "fieldname": "area",
    "fieldtype": "Float",
@@ -62,13 +54,21 @@
    "fieldname": "contract_section",
    "fieldtype": "Section Break",
    "label": "Contract"
+  },
+  {
+   "fetch_from": "shop.rent",
+   "fieldname": "base_rent",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Base Rent",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-12-18 13:40:30.952508",
+ "modified": "2025-12-19 13:48:07.820732",
  "modified_by": "Administrator",
  "module": "Airport Shop Management",
  "name": "Shop Lease Contract",

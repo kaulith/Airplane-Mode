@@ -65,22 +65,19 @@
    "fieldname": "departure_date",
    "fieldtype": "Date",
    "in_standard_filter": 1,
-   "label": "Departure Date",
-   "reqd": 1
+   "label": "Departure Date"
   },
   {
    "fetch_from": "flight.time_of_departure",
    "fieldname": "departure_time",
    "fieldtype": "Time",
-   "label": "Departure Time",
-   "reqd": 1
+   "label": "Departure Time"
   },
   {
    "fetch_from": "flight.duration",
    "fieldname": "duration_of_flight",
    "fieldtype": "Duration",
-   "label": "Duration of Flight",
-   "reqd": 1
+   "label": "Duration of Flight"
   },
   {
    "fieldname": "column_break_dqce",
@@ -159,7 +156,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-12-17 13:15:09.615495",
+ "modified": "2025-12-19 13:14:22.626547",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Ticket",

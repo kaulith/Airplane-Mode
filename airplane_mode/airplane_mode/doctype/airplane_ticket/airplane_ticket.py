@@ -1,11 +1,13 @@
-import frappe
 import random
+
+import frappe
 from frappe import _
 from frappe.model.document import Document
 
 
 class AirplaneTicket(Document):
 	def validate(self):
+		self.update_flight_details()
 		self.remove_duplicate_addons()
 		self.calculate_total()
 		self.check_capacity()
@@ -17,6 +19,20 @@ class AirplaneTicket(Document):
 	def before_submit(self):
 		if self.status != "Boarded":
 			frappe.throw("Cannot submit ticket unless status is 'Boarded'.")
+
+	def update_flight_details(self):
+		if not self.flight:
+			return
+
+		flight = frappe.get_doc("Airplane Flight", self.flight)
+
+		self.source_airport_code = flight.get("source_airport_code")
+		self.destination_airport_code = flight.get("destination_airport_code")
+		self.flight_price = flight.get("flight_price")
+		self.departure_date = flight.get("departure_date")
+		self.departure_time = flight.get("departure_time")
+		self.gate_number = flight.get("gate_number")
+		self.duration_of_flight = flight.get("duration_of_flight")
 
 	def calculate_total(self):
 		addons_total = sum([d.amount for d in self.add_ons])
@@ -38,7 +54,6 @@ class AirplaneTicket(Document):
 			return
 
 		flight = frappe.get_doc("Airplane Flight", self.flight)
-
 		if not flight.airplane:
 			return
 

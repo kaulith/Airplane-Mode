@@ -37,7 +37,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Status",
-   "options": "Available\nLeased\nUnder Maintenance"
+   "options": "Available\nOccupied\nUnder Maintenance"
   },
   {
    "fieldname": "shop_section",
@@ -79,7 +79,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-19 11:35:00.565918",
+ "modified": "2025-12-19 15:51:18.687353",
  "modified_by": "Administrator",
  "module": "Airport Shop Management",
  "name": "Shop",

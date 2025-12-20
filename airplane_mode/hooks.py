@@ -152,23 +152,23 @@ web_include_css = "/assets/airplane_mode/css/airplane_mode.css"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"airplane_mode.tasks.all"
-# 	],
-# 	"daily": [
-# 		"airplane_mode.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"airplane_mode.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"airplane_mode.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"airplane_mode.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+	# "all": [
+	# 	"airplane_mode.tasks.all"
+	# ],
+	"daily": [
+		"airplane_mode.airport_shop_management.doctype.rent_payment_schedule.rent_payment_schedule.send_rent_reminders"
+	  ],
+	# "hourly": [
+	# 	"airplane_mode.tasks.hourly"
+	# ],
+	# "weekly": [
+	# 	"airplane_mode.tasks.weekly"
+	# ],
+	# "monthly": [
+	# 	"airplane_mode.tasks.monthly"
+	# ],
+}
 
 # Testing
 # -------

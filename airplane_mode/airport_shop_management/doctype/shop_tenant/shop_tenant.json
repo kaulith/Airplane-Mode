@@ -1,15 +1,16 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{tenant_name}",
  "creation": "2025-12-17 15:24:15.112960",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "shop_tenant_section",
   "tenant_name",
+  "contact_person",
   "email",
   "phone",
-  "contact_person",
   "column_break_luvw",
   "company_name",
   "address"
@@ -63,10 +64,11 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-18 10:43:33.147301",
+ "modified": "2025-12-19 13:26:36.159027",
  "modified_by": "Administrator",
  "module": "Airport Shop Management",
  "name": "Shop Tenant",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

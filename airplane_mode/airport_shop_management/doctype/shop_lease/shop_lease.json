@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:CONTRACT-.####",
+ "autoname": "format:CONTRACT-{####}",
  "creation": "2025-12-17 15:57:31.598807",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -17,13 +17,14 @@
   "status",
   "column_break_eckr",
   "end_date",
-  "payment_due_date",
+  "payment_due_day",
   "shops_section",
-  "shops",
+  "shop",
   "rent_details_section",
-  "monthly_rent",
+  "total_base_rent",
   "column_break_shiy",
-  "total_base_rent"
+  "monthly_rent",
+  "amended_from"
  ],
  "fields": [
   {
@@ -71,7 +72,7 @@
   },
   {
    "fieldname": "start_date",
-   "fieldtype": "Data",
+   "fieldtype": "Date",
    "label": "Start Date",
    "reqd": 1
   },
@@ -82,15 +83,11 @@
    "reqd": 1
   },
   {
+   "default": "Draft",
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Draft\nActive\nExpired\nTerminated"
-  },
-  {
-   "fieldname": "payment_due_date",
-   "fieldtype": "Int",
-   "label": "Payment Due Date"
+   "options": "Draft\nActive\nExpired\nCancelled"
   },
   {
    "fieldname": "column_break_eckr",
@@ -100,12 +97,6 @@
    "fieldname": "shops_section",
    "fieldtype": "Section Break",
    "label": "Shops"
-  },
-  {
-   "fieldname": "shops",
-   "fieldtype": "Table",
-   "label": "Shops",
-   "options": "Shop Lease Contract"
   },
   {
    "fieldname": "rent_details_section",
@@ -121,18 +112,39 @@
   {
    "fieldname": "monthly_rent",
    "fieldtype": "Currency",
-   "label": "Monthly Rent",
-   "reqd": 1
+   "label": "Monthly Rent"
   },
   {
    "fieldname": "column_break_shiy",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shop",
+   "fieldtype": "Table",
+   "label": "Shop",
+   "options": "Shop Lease Contract"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Shop Lease",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "payment_due_day",
+   "fieldtype": "Int",
+   "label": "Payment Due Day"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2025-12-18 13:04:06.036172",
+ "modified": "2025-12-19 15:53:23.630939",
  "modified_by": "Administrator",
  "module": "Airport Shop Management",
  "name": "Shop Lease",
