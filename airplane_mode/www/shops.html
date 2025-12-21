@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Portal - Browse Available Shops</title>
+    <style>
+        html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#fff;color:#111}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:0;padding:0}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}*{box-sizing:inherit}html,body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;box-sizing:border-box;height:100%}body{color:#2c3e50;font-size:1em;line-height:1.6;background:#f8f9fa}main{display:block}h1,h2,h3,h4,h5,h6{margin:0;padding:.6em 0;color:#2c3e50}li{margin:0 0 .3em}a{color:#0074d9;text-decoration:none;box-shadow:none;transition:all .3s}code{padding:.3em .6em;font-size:.8em;background:#f5f5f5}pre{text-align:left;padding:.3em;background:#f5f5f5;border-radius:.2em}pre code{padding:0}blockquote{padding:0 0 0 1em;margin:0 0 0 .1em;box-shadow:inset 5px 0 rgba(0,116,217,.3)}label{cursor:pointer}[class^=icon-]:before,[class*=" icon-"]:before{margin:0 .6em 0 0}i[class^=icon-]:before,i[class*=" icon-"]:before{margin:0}.dropimage,button,.button,[type=submit],.label,[data-tooltip]:after{display:inline-block;text-align:center;letter-spacing:inherit;margin:0;padding:.3em .9em;vertical-align:middle;background:#0074d9;color:#fff;border:0;border-radius:.4em;width:auto;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;font-weight:600}.success.dropimage,button.success,.success.button,.success[type=submit],.success.label,.success[data-tooltip]:after{background:#27ae60}.warning.dropimage,button.warning,.warning.button,.warning[type=submit],.warning.label,.warning[data-tooltip]:after{background:#f39c12}.error.dropimage,button.error,.error.button,.error[type=submit],.error.label,.error[data-tooltip]:after{background:#e74c3c}.pseudo.dropimage,button.pseudo,.pseudo.button,.pseudo[type=submit],.pseudo.label,.pseudo[data-tooltip]:after{background-color:transparent;color:inherit}.label,[data-tooltip]:after{font-size:.6em;padding:.4em .6em;margin-left:1em;line-height:1}.dropimage,button,.button,[type=submit]{margin:.3em 0;cursor:pointer;transition:all .3s;border-radius:.4em;height:auto;vertical-align:baseline;box-shadow:0 2px 8px rgba(0,116,217,.15)}.dropimage:hover,button:hover,.button:hover,[type=submit]:hover,.dropimage:focus,button:focus,.button:focus,[type=submit]:focus{box-shadow:0 4px 12px rgba(0,116,217,.3);transform:translateY(-2px)}.pseudo.dropimage:hover,button.pseudo:hover,.pseudo.button:hover,.pseudo[type=submit]:hover,.pseudo.dropimage:focus,button.pseudo:focus,.pseudo.button:focus,.pseudo[type=submit]:focus{box-shadow:inset 0 0 0 99em rgba(17,17,17,.1)}.active.dropimage,button.active,.active.button,.active[type=submit],.dropimage:active,button:active,.button:active,[type=submit]:active{box-shadow:inset 0 0 0 99em rgba(17,17,17,.2)}[disabled].dropimage,button[disabled],[disabled].button,[disabled][type=submit]{cursor:default;box-shadow:none;background:#95a5a6}:checked+.toggle,:checked+.toggle:hover{box-shadow:inset 0 0 0 99em rgba(17,17,17,.2)}[type]+.toggle{padding:.3em .9em;margin-right:0}[type]+.toggle:after,[type]+.toggle:before{display:none}input,textarea,.select select{line-height:1.5;margin:0;height:2.1em;padding:.3em .6em;border:1px solid #bdc3c7;background-color:#fff;border-radius:.4em;transition:all .3s;width:100%}input:focus,textarea:focus,.select select:focus{border:1px solid #0074d9;outline:0;box-shadow:0 0 0 3px rgba(0,116,217,.1)}textarea{height:auto}[type=file],[type=color]{cursor:pointer}[type=file]{height:auto}select{background:#fff url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyIiBoZWlnaHQ9IjMiPjxwYXRoIGQ9Im0gMCwxIDEsMiAxLC0yIHoiIGZpbGw9IiMwMDAwIi8+PC9zdmc+) no-repeat scroll 95% center/10px 15px;background-position:calc(100% - 15px) center;border:1px solid #bdc3c7;border-radius:.4em;cursor:pointer;width:100%;height:2.2em;box-sizing:border-box;padding:.3em .45em;transition:all .3s;-moz-appearance:none;-webkit-appearance:none;appearance:none}select::-ms-expand{display:none}select:focus,select:active{border:1px solid #0074d9;transition:outline 0s;box-shadow:0 0 0 3px rgba(0,116,217,.1)}select:-moz-focusring{color:transparent;text-shadow:0 0 0 #111}select option{font-size:inherit;padding:.45em}select[multiple]{height:auto;background:none;padding:0}[type=checkbox],[type=radio]{opacity:0;width:0;position:absolute;display:inline-block}[type=checkbox]+.checkable:hover:before,[type=radio]+.checkable:hover:before,[type=checkbox]:focus+.checkable:before,[type=radio]:focus+.checkable:before{border:1px solid #0074d9}[type=checkbox]+.checkable,[type=radio]+.checkable{position:relative;cursor:pointer;padding-left:1.5em;margin-right:.6em}[type=checkbox]+.checkable:before,[type=radio]+.checkable:before,[type=checkbox]+.checkable:after,[type=radio]+.checkable:after{content:"";position:absolute;display:inline-block;left:0;top:50%;transform:translateY(-50%);font-size:1em;line-height:1em;color:transparent;font-family:sans;text-align:center;box-sizing:border-box;width:1em;height:1em;border-radius:50%;transition:all .3s}[type=checkbox]+.checkable:before,[type=radio]+.checkable:before{border:1px solid #bdc3c7}[type=checkbox]:checked+.checkable:after,[type=radio]:checked+.checkable:after{background:#0074d9;transform:scale(0.5) translateY(-100%)}[type=checkbox]+.checkable:before{border-radius:.2em}[type=checkbox]+.checkable:after{content:"✔";background:none;transform:scale(2) translateY(-25%);visibility:hidden;opacity:0;color:#fff}[type=checkbox]:checked+.checkable:after{color:#fff;background:none;transform:translateY(-50%);transition:all .3s;visibility:visible;opacity:1}
+        body { padding-top: 3em; }
+        .portal-header {
+            background: linear-gradient(135deg, #0074d9 0%, #0059a8 100%);
+            color: white;
+            padding: 3em 2em;
+            text-align: center;
+            margin-bottom: 2em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .portal-header h1 { margin: 0; font-size: 2.8em; font-weight: 700; }
+        .portal-header p { margin: 0.5em 0 0 0; font-size: 1.15em; opacity: 0.95; }
+        .main-content { padding: 2em 1em; background: #f8f9fa; }
+        .filter-card { margin-bottom: 2.5em; background: white; border-radius: 0.4em; padding: 1.8em; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .filter-card h3 { color: #2c3e50; margin-top: 0; font-size: 1.2em; }
+        .filter-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5em; }
+        .shop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2.5em; margin-bottom: 2em; }
+        .shop-card { 
+            border: none; 
+            border-radius: 0.6em; 
+            padding: 1.8em; 
+            text-decoration: none; 
+            color: inherit;
+            transition: all 0.3s ease;
+            display: block;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .shop-card:hover { 
+            box-shadow: 0 8px 24px rgba(0,116,217,0.2);
+            transform: translateY(-6px);
+        }
+        .shop-icon { font-size: 3.5em; text-align: center; margin-bottom: 1em; }
+        .shop-name { font-size: 1.4em; font-weight: 700; margin-bottom: 0.5em; color: #2c3e50; }
+        .shop-number { color: #7f8c8d; font-size: 0.9em; margin-bottom: 1.2em; font-weight: 500; }
+        .shop-details { margin: 1.2em 0; }
+        .detail-row { display: flex; justify-content: space-between; padding: 0.7em 0; border-bottom: 1px solid #ecf0f1; }
+        .detail-label { font-weight: 600; color: #7f8c8d; font-size: 0.95em; }
+        .detail-value { color: #2c3e50; font-weight: 500; }
+        .status-badge {
+            display: inline-block;
+            padding: 0.5em 1em;
+            border-radius: 0.3em;
+            font-size: 0.9em;
+            font-weight: 700;
+            margin-top: 1em;
+            text-align: center;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .status-available { background: #27ae60; color: white; }
+        .status-occupied { background: #f39c12; color: white; }
+        .status-maintenance { background: #95a5a6; color: white; }
+        .empty-state { text-align: center; padding: 4em 1em; grid-column: 1 / -1; }
+        .empty-icon { font-size: 4em; margin-bottom: 1em; opacity: 0.7; }
+        .empty-title { font-size: 1.6em; font-weight: 700; margin-bottom: 0.5em; color: #2c3e50; }
+        .empty-text { color: #7f8c8d; font-size: 1.05em; }
+        nav { position: fixed; top: 0; left: 0; right: 0; height: 3em; padding: 0 0.8em; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 10000; }
+        nav .brand { font-weight: 700; float: left; padding: 0 0.8em; color: #0074d9; position: relative; top: 50%; transform: translateY(-50%); font-size: 1.1em; }
+        .footer { background: #2c3e50; color: white; text-align: center; padding: 2.5em; margin-top: 4em; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="brand">🛍️ Shop Portal</div>
+    </nav>
+
+    <header class="portal-header">
+        <h1>🏬 Browse Available Shops</h1>
+        <p>Find and lease the perfect shop space at our airports</p>
+    </header>
+
+    <main class="main-content">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <!-- Filters -->
+            <div class="filter-card" style="border: 1px solid #aaa; border-radius: 0.2em; padding: 1.5em; background: white;">
+                <h3>Filter Shops</h3>
+                <div class="filter-grid">
+                    <div>
+                        <label for="airport-filter" style="display: block; margin-bottom: 0.3em; font-weight: 600;">Airport</label>
+                        <select id="airport-filter">
+                            <option value="">All Airports</option>
+                            {% for airport in airports %}
+                                <option value="{{ airport }}">{{ airport }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div>
+                        <label for="status-filter" style="display: block; margin-bottom: 0.3em; font-weight: 600;">Status</label>
+                        <select id="status-filter">
+                            <option value="">All Status</option>
+                            <option value="Available">Available</option>
+                            <option value="Occupied">Occupied</option>
+                            <option value="Under Maintenance">Under Maintenance</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="search-filter" style="display: block; margin-bottom: 0.3em; font-weight: 600;">Search</label>
+                        <input type="text" id="search-filter" placeholder="Search by name...">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shops Grid -->
+            <div id="shops-container" class="shop-grid">
+                {% if shops %}
+                    {% for shop in shops %}
+                        <a href="/shop_details?shop={{ shop.name }}" class="shop-card">
+                            <div class="shop-icon">🏪</div>
+                            <div class="shop-name">{{ shop.shop_name or shop.shop_number }}</div>
+                            <div class="shop-number">Shop #{{ shop.shop_number }}</div>
+                            <div class="shop-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Airport</span>
+                                    <span class="detail-value">{{ shop.airport or 'N/A' }}</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Area</span>
+                                    <span class="detail-value">{{ shop.area or 'N/A' }}{% if shop.area %} sqft{% endif %}</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Rent</span>
+                                    <span class="detail-value">{% if shop.rent %}₹{{ "{:,.0f}".format(shop.rent|float) }}{% else %}N/A{% endif %}/mo</span>
+                                </div>
+                            </div>
+                            {% set status_class = 'status-available' if shop.status == 'Available' else ('status-occupied' if shop.status == 'Occupied' else 'status-maintenance') %}
+                            <div class="status-badge {{ status_class }}">{{ shop.status or 'N/A' }}</div>
+                        </a>
+                    {% endfor %}
+                {% else %}
+                    <div class="empty-state">
+                        <div class="empty-icon">🔍</div>
+                        <div class="empty-title">No Shops Found</div>
+                        <div class="empty-text">No shops are currently available. Please check back later.</div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Airport Shop Management. All rights reserved.</p>
+    </footer>
+
+    <script>
+        var allShops = [];
+        var filteredShops = [];
+        try {
+            allShops = JSON.parse('{{ shops_json | safe }}');
+            if (!Array.isArray(allShops)) allShops = [];
+            filteredShops = [...allShops];
+        } catch(e) {
+            allShops = [];
+            filteredShops = [];
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            setupFilterListeners();
+        });
+
+        function setupFilterListeners() {
+            document.getElementById('airport-filter').addEventListener('change', applyFilters);
+            document.getElementById('status-filter').addEventListener('change', applyFilters);
+            document.getElementById('search-filter').addEventListener('input', applyFilters);
+        }
+
+        function applyFilters() {
+            const airport = document.getElementById('airport-filter').value;
+            const status = document.getElementById('status-filter').value;
+            const search = document.getElementById('search-filter').value.toLowerCase();
+
+            filteredShops = allShops.filter(shop => {
+                const matchAirport = !airport || shop.airport === airport;
+                const matchStatus = !status || shop.status === status;
+                const matchSearch = !search || 
+                    (shop.shop_name && shop.shop_name.toLowerCase().includes(search)) ||
+                    (shop.shop_number && shop.shop_number.toLowerCase().includes(search));
+                
+                return matchAirport && matchStatus && matchSearch;
+            });
+
+            renderShops();
+        }
+
+        function renderShops() {
+            const container = document.getElementById('shops-container');
+            
+            if (filteredShops.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">🔍</div>
+                        <div class="empty-title">No Shops Found</div>
+                        <div class="empty-text">Try adjusting your filters to find available shops.</div>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filteredShops.map(shop => `
+                <a href="/shop_details?shop=${shop.name}" class="shop-card">
+                    <div class="shop-icon">🏪</div>
+                    <div class="shop-name">${shop.shop_name || shop.shop_number}</div>
+                    <div class="shop-number">Shop #${shop.shop_number}</div>
+                    <div class="shop-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Airport</span>
+                            <span class="detail-value">${shop.airport || 'N/A'}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Area</span>
+                            <span class="detail-value">${shop.area ? shop.area + ' sqft' : 'N/A'}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Rent</span>
+                            <span class="detail-value">${shop.rent ? '₹' + formatCurrency(shop.rent) + '/mo' : 'N/A'}</span>
+                        </div>
+                    </div>
+                    <div class="status-badge ${getStatusClass(shop.status)}">
+                        ${shop.status || 'N/A'}
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        function getStatusClass(status) {
+            switch(status) {
+                case 'Available': return 'status-available';
+                case 'Occupied': return 'status-occupied';
+                case 'Under Maintenance': return 'status-maintenance';
+                default: return 'status-available';
+            }
+        }
+
+        function formatCurrency(value) {
+            return parseFloat(value).toLocaleString('en-IN', {
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            });
+        }
+    </script>
+</body>
+</html>

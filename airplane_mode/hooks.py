@@ -68,6 +68,12 @@ web_include_css = "/assets/airplane_mode/css/airplane_mode.css"
 # 	"Role": "home_page"
 # }
 
+# Website Routes
+# ---------------
+
+# Add custom website routes
+website_route_rules = []
+
 # Generators
 # ----------
 

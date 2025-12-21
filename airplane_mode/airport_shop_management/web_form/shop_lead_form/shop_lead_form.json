@@ -1,0 +1,119 @@
+{
+ "accept_conditional_branch_logic": 0,
+ "accept_payment": 0,
+ "allow_comments": 0,
+ "allow_delete": 0,
+ "allow_edit": 0,
+ "allow_incomplete": 0,
+ "allow_multiple": 1,
+ "allow_print": 1,
+ "breadcrumbs": 1,
+ "creation": "2025-12-20 10:00:00.000000",
+ "custom_css": "",
+ "docstatus": 1,
+ "doctype": "Web Form",
+ "doc_type": "Shop Lead",
+ "document_title": "{lead_name}",
+ "email_confirmation": 1,
+ "fields": [
+  {
+   "allow_on_submit": 0,
+   "fieldname": "shop",
+   "fieldtype": "Link",
+   "hidden": 0,
+   "label": "Shop",
+   "options": "Shop",
+   "read_only": 0,
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 0,
+   "fieldname": "lead_name",
+   "fieldtype": "Data",
+   "hidden": 0,
+   "label": "Full Name",
+   "read_only": 0,
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 0,
+   "fieldname": "email",
+   "fieldtype": "Email",
+   "hidden": 0,
+   "label": "Email",
+   "read_only": 0,
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 0,
+   "fieldname": "phone",
+   "fieldtype": "Phone",
+   "hidden": 0,
+   "label": "Phone",
+   "read_only": 0,
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 0,
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "hidden": 0,
+   "label": "Company/Organization Name",
+   "read_only": 0,
+   "reqd": 0
+  },
+  {
+   "allow_on_submit": 0,
+   "fieldname": "company_website",
+   "fieldtype": "Data",
+   "hidden": 0,
+   "label": "Company Website",
+   "read_only": 0,
+   "reqd": 0
+  },
+  {
+   "allow_on_submit": 0,
+   "fieldname": "business_type",
+   "fieldtype": "Select",
+   "hidden": 0,
+   "label": "Business Type",
+   "options": "Retail\nFood & Beverage\nServices\nManufacturing\nOther",
+   "read_only": 0,
+   "reqd": 0
+  },
+  {
+   "allow_on_submit": 0,
+   "fieldname": "message",
+   "fieldtype": "Text Editor",
+   "hidden": 0,
+   "label": "Message/Comments",
+   "read_only": 0,
+   "reqd": 0
+  },
+  {
+   "allow_on_submit": 0,
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "hidden": 0,
+   "label": "How did you hear about us?",
+   "options": "Web Portal\nInternet Search\nReferral\nDirectly\nOther",
+   "read_only": 0,
+   "reqd": 0
+  }
+ ],
+ "introduction_text": "",
+ "list_rows": 20,
+ "login_required": 0,
+ "max_attachment_size": 0,
+ "modified": "2025-12-20 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Airport Shop Management",
+ "name": "shop-lead",
+ "owner": "Administrator",
+ "published": 1,
+ "route": "shop-lead",
+ "show_sidebar": 0,
+ "sidebar_items": [],
+ "success_action": "Show Message",
+ "success_message": "Thank you for your interest! Our team will contact you shortly."
+}
