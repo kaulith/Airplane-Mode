@@ -6,7 +6,13 @@ app_email = "kaushal@test.com"
 app_license = "mit"
 
 fixtures = [
-    {"doctype": "Web Form"}
+    {"doctype": "Web Form"},
+    {
+        "dt": "Shop Type",
+        "filters": [
+            ["name", "in", ["Stall", "Walk-through", "Normal"]]
+        ]
+    }
 ]
 
 # Apps

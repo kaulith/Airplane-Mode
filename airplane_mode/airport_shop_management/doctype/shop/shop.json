@@ -12,6 +12,7 @@
   "status",
   "rent",
   "location",
+  "shop_type",
   "column_break_rocc",
   "airport",
   "area",
@@ -74,12 +75,18 @@
    "fieldname": "location",
    "fieldtype": "Small Text",
    "label": "Location"
+  },
+  {
+   "fieldname": "shop_type",
+   "fieldtype": "Link",
+   "label": "Shop Type",
+   "options": "Shop Type"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-19 15:51:18.687353",
+ "modified": "2025-12-21 20:45:23.375647",
  "modified_by": "Administrator",
  "module": "Airport Shop Management",
  "name": "Shop",
