@@ -2,7 +2,6 @@ import frappe
 from urllib.parse import unquote
 
 def get_context(context):
-	"""Fetch shop details and active lease info"""
 	shop_name = frappe.request.args.get("shop") or frappe.form_dict.get("shop")
 	
 	if shop_name:
@@ -15,7 +14,6 @@ def get_context(context):
 		return context
 	
 	try:
-		# Fetch shop document
 		context["shop"] = frappe.get_doc("Shop", shop_name)
 		
 		if context["shop"].status == "Occupied":
@@ -31,7 +29,7 @@ def get_context(context):
 	except frappe.DoesNotExistError:
 		context["shop"] = None
 		context["lease"] = None
-	except Exception as e:
+	except Exception:
 		frappe.log_error(frappe.get_traceback(), "Shop Details Error")
 	
 	return context
