@@ -1,88 +1,61 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:LEAD-{####}",
- "creation": "2025-12-20 10:00:00.000000",
+ "autoname": "SL-.YY.MM.- .#####",
+ "creation": "2026-01-02 17:31:01.234402",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "shop_section",
   "shop",
-  "shop_name",
-  "airport",
-  "lead_section",
   "lead_name",
   "email",
-  "column_break_xyzz",
   "phone",
   "company_name",
-  "company_website",
-  "column_break_details",
   "business_type",
-  "column_break_additional",
+  "follow_up_date",
+  "company_website",
+  "column_break_ujpl",
   "message",
-  "source",
   "status"
  ],
  "fields": [
   {
-   "fieldname": "shop_section",
-   "fieldtype": "Section Break",
-   "label": "Shop Information"
-  },
-  {
    "fieldname": "shop",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Shop",
    "options": "Shop",
    "reqd": 1
   },
   {
-   "fetch_from": "shop.shop_name",
-   "fieldname": "shop_name",
-   "fieldtype": "Data",
-   "label": "Shop Name",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "shop.airport",
-   "fieldname": "airport",
-   "fieldtype": "Link",
-   "label": "Airport",
-   "options": "Airport",
-   "read_only": 1
-  },
-  {
-   "fieldname": "lead_section",
-   "fieldtype": "Section Break",
-   "label": "Lead Information"
-  },
-  {
    "fieldname": "lead_name",
    "fieldtype": "Data",
-   "label": "Full Name",
+   "in_list_view": 1,
+   "label": "Lead Name",
    "reqd": 1
   },
   {
    "fieldname": "email",
-   "fieldtype": "Email",
+   "fieldtype": "Data",
    "label": "Email",
    "reqd": 1
   },
   {
-   "fieldname": "column_break_xyzz",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "phone",
    "fieldtype": "Phone",
+   "in_list_view": 1,
    "label": "Phone",
    "reqd": 1
   },
   {
    "fieldname": "company_name",
    "fieldtype": "Data",
-   "label": "Company/Organization Name"
+   "label": "Company Name"
+  },
+  {
+   "fieldname": "business_type",
+   "fieldtype": "Data",
+   "label": "Business Type"
   },
   {
    "fieldname": "company_website",
@@ -90,46 +63,35 @@
    "label": "Company Website"
   },
   {
-   "fieldname": "column_break_details",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "business_type",
-   "fieldtype": "Select",
-   "label": "Business Type",
-   "options": "\nRetail\nFood & Beverage\nServices\nManufacturing\nOther"
-  },
-  {
-   "fieldname": "column_break_additional",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "message",
    "fieldtype": "Text Editor",
-   "label": "Message/Comments"
-  },
-  {
-   "fieldname": "source",
-   "fieldtype": "Select",
-   "label": "How did you hear about us?",
-   "options": "\nWeb Portal\nInternet Search\nReferral\nDirectly\nOther"
+   "label": "Message"
   },
   {
    "default": "New",
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "New\nIn Progress\nQualified\nNot Qualified\nClosed"
+   "options": "New\nContacted\nInterested\nNot Interested"
+  },
+  {
+   "fieldname": "follow_up_date",
+   "fieldtype": "Date",
+   "label": "Follow Up Date"
+  },
+  {
+   "fieldname": "column_break_ujpl",
+   "fieldtype": "Column Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-20 10:00:00.000000",
+ "modified": "2026-01-05 16:54:23.210793",
  "modified_by": "Administrator",
  "module": "Airport Shop Management",
  "name": "Shop Lead",
- "naming_rule": "Expression",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
@@ -143,19 +105,11 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
-  },
-  {
-   "create": 1,
-   "email": 1,
-   "print": 1,
-   "read": 1,
-   "role": "Guest",
-   "share": 0,
-   "write": 0
   }
  ],
- "quick_entry": 1,
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
  "sort_field": "modified",
- "sort_order": "Desc",
- "track_changes": 1
+ "sort_order": "DESC",
+ "states": []
 }
