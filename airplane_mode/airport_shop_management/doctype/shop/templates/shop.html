@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% if doc %}{{ doc.shop_name or doc.shop_number }}{% else %}Shop{% endif %} - Details</title>
+    <style>
+        html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#fff;color:#111}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:0;padding:0}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}*{box-sizing:inherit}html,body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;box-sizing:border-box;height:100%}body{color:#2c3e50;font-size:1em;line-height:1.6;background:#f8f9fa}main{display:block}h1,h2,h3,h4,h5,h6{margin:0;padding:.6em 0;color:#2c3e50}li{margin:0 0 .3em}a{color:#0074d9;text-decoration:none;box-shadow:none;transition:all .3s}code{padding:.3em .6em;font-size:.8em;background:#f5f5f5}pre{text-align:left;padding:.3em;background:#f5f5f5;border-radius:.2em}pre code{padding:0}blockquote{padding:0 0 0 1em;margin:0 0 0 .1em;box-shadow:inset 5px 0 rgba(0,116,217,.3)}label{cursor:pointer}[class^=icon-]:before,[class*=" icon-"]:before{margin:0 .6em 0 0}i[class^=icon-]:before,i[class*=" icon-"]:before{margin:0}.dropimage,button,.button,[type=submit],.label,[data-tooltip]:after{display:inline-block;text-align:center;letter-spacing:inherit;margin:0;padding:.3em .9em;vertical-align:middle;background:#0074d9;color:#fff;border:0;border-radius:.4em;width:auto;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;font-weight:600}.success.dropimage,button.success,.success.button,.success[type=submit],.success.label,.success[data-tooltip]:after{background:#27ae60}.warning.dropimage,button.warning,.warning.button,.warning[type=submit],.warning.label,.warning[data-tooltip]:after{background:#f39c12}.error.dropimage,button.error,.error.button,.error[type=submit],.error.label,.error[data-tooltip]:after{background:#e74c3c}.pseudo.dropimage,button.pseudo,.pseudo.button,.pseudo[type=submit],.pseudo.label,.pseudo[data-tooltip]:after{background-color:transparent;color:inherit}.label,[data-tooltip]:after{font-size:.6em;padding:.4em .6em;margin-left:1em;line-height:1}.dropimage,button,.button,[type=submit]{margin:.3em 0;cursor:pointer;transition:all .3s;border-radius:.4em;height:auto;vertical-align:baseline;box-shadow:0 2px 8px rgba(0,116,217,.15)}.dropimage:hover,button:hover,.button:hover,[type=submit]:hover,.dropimage:focus,button:focus,.button:focus,[type=submit]:focus{box-shadow:0 4px 12px rgba(0,116,217,.3);transform:translateY(-2px)}.pseudo.dropimage:hover,button.pseudo:hover,.pseudo.button:hover,.pseudo[type=submit]:hover,.pseudo.dropimage:focus,button.pseudo:focus,.pseudo.button:focus,.pseudo[type=submit]:focus{box-shadow:inset 0 0 0 99em rgba(17,17,17,.1)}.active.dropimage,button.active,.active.button,.active[type=submit],.dropimage:active,button:active,.button:active,[type=submit]:active{box-shadow:inset 0 0 0 99em rgba(17,17,17,.2)}[disabled].dropimage,button[disabled],[disabled].button,[disabled][type=submit]{cursor:default;box-shadow:none;background:#95a5a6}
+        body { padding-top: 3em; }
+        .breadcrumb { padding: 1em 1.5em; background: #f8f9fa; border-bottom: 1px solid #e9ecef; }
+        .breadcrumb a { color: #667eea; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+        .breadcrumb a:hover { color: #764ba2; }
+        .portal-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2.5em;
+            margin-bottom: 2em;
+            box-shadow: 0 4px 20px rgba(102,126,234,0.3);
+        }
+        .portal-header h1 { margin: 0.5em 0 0.3em 0; font-size: 2.4em; font-weight: 700; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .portal-header .shop-icon { font-size: 2.5em; display: inline-block; margin-right: 0.5em; }
+        .portal-header p { margin: 0.3em 0 0 0; font-size: 0.95em; opacity: 0.95; }
+        .main-content { padding: 2em 1em; background: linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%); }
+        .content-container { max-width: 1200px; margin: 0 auto; }
+        .shop-details-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2.5em; }
+        .info-card { border: none; border-radius: 1em; padding: 2em; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border: 1px solid #f1f3f5; }
+        .info-row { display: flex; justify-content: space-between; padding: 1em 0; border-bottom: 1px solid #f1f3f5; }
+        .info-row:last-child { border-bottom: none; }
+        .info-label { font-weight: 700; color: #868e96; font-size: 0.95em; }
+        .info-value { color: #495057; text-align: right; font-weight: 500; }
+        .status-badge {
+            display: inline-block;
+            padding: 0.6em 1.2em;
+            border-radius: 2em;
+            font-weight: 700;
+            margin-top: 1em;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-size: 0.85em;
+        }
+        .status-available { background: linear-gradient(135deg, #51cf66 0%, #37b24d 100%); color: white; box-shadow: 0 2px 8px rgba(81,207,102,0.3); }
+        .status-occupied { background: linear-gradient(135deg, #ffa94d 0%, #fd7e14 100%); color: white; box-shadow: 0 2px 8px rgba(253,126,20,0.3); }
+        .status-maintenance { background: linear-gradient(135deg, #adb5bd 0%, #868e96 100%); color: white; box-shadow: 0 2px 8px rgba(173,181,189,0.3); }
+        .lease-info { margin-top: 2em; }
+        .lease-section { border: none; border-radius: 1em; padding: 1.8em; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); box-shadow: 0 2px 8px rgba(0,0,0,0.04); border: 1px solid #e9ecef; }
+        .lease-section h3 { margin-top: 0; color: #495057; font-size: 1.15em; font-weight: 600; }
+        .button { display: inline-block; padding: 0.7em 1.5em; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 2em; font-weight: 600; box-shadow: 0 4px 12px rgba(102,126,234,0.3); transition: all 0.3s ease; }
+        .button:hover { background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); box-shadow: 0 6px 20px rgba(102,126,234,0.4); transform: translateY(-2px); }
+        nav { position: fixed; top: 0; left: 0; right: 0; height: 3em; padding: 0 0.8em; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.08); z-index: 10000; backdrop-filter: blur(10px); }
+        nav .brand { font-weight: 700; float: left; padding: 0 0.8em; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; position: relative; top: 50%; transform: translateY(-50%); font-size: 1.1em; }
+        .footer { background: linear-gradient(135deg, #434343 0%, #000000 100%); color: rgba(255,255,255,0.9); text-align: center; padding: 2.5em; margin-top: 4em; box-shadow: 0 -2px 20px rgba(0,0,0,0.1); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        .info-card, .lease-section { animation: fadeIn 0.6s ease-out; }
+        .portal-header .shop-icon { display: inline-block; animation: pulse 2s ease-in-out infinite; }
+        .info-row { transition: all 0.2s ease; }
+        .info-row:hover { background: #f8f9fa; padding-left: 0.5em; margin-left: -0.5em; border-radius: 0.4em; }
+        .breadcrumb a { display: inline-flex; align-items: center; gap: 0.3em; }
+        .breadcrumb a:hover { gap: 0.5em; }
+        .portal-header { position: relative; overflow: hidden; }
+        .portal-header::before { content: ''; position: absolute; top: 0; left: -100%; width: 200%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); animation: shine 3s infinite; }
+        @keyframes shine { to { left: 100%; } }
+        html { scroll-behavior: smooth; }
+        .info-card h2 { position: relative; padding-bottom: 0.5em; }
+        .info-card h2::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, #667eea, #764ba2); border-radius: 2px; }
+        .shop-details-grid > * { animation: fadeIn 0.6s ease-out; }
+        .shop-details-grid > *:nth-child(2) { animation-delay: 0.1s; }
+        .status-badge { position: relative; overflow: hidden; }
+        .status-badge::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); animation: shimmerBadge 2s infinite; }
+        @keyframes shimmerBadge { to { left: 100%; } }
+        .button { position: relative; overflow: hidden; }
+        .button::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-radius: 50%; background: rgba(255,255,255,0.3); transform: translate(-50%, -50%); transition: width 0.6s, height 0.6s; }
+        .button:hover::before { width: 300px; height: 300px; }
+        .detail-section { position: relative; }
+        .detail-section::before { content: '📋'; position: absolute; top: -8px; left: -8px; font-size: 2em; opacity: 0.05; }
+        .lease-section::before { content: '📄'; position: absolute; top: -8px; left: -8px; font-size: 2em; opacity: 0.05; }
+        @media (max-width: 768px) {
+            .shop-details-grid { grid-template-columns: 1fr; }
+            .portal-header h1 { font-size: 1.8em; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="brand">🛍️ Shop Portal</div>
+    </nav>
+
+    <div class="breadcrumb">
+        <a href="/shop">← Back to All Shops</a>
+    </div>
+
+    {% if doc %}
+        <header class="portal-header">
+            <div class="shop-icon">🏪</div>
+            <h1>{{ doc.shop_name or doc.shop_number }}</h1>
+            <p>Shop ID: {{ doc.name }}</p>
+        </header>
+
+        <main class="main-content">
+            <div class="content-container">
+                <div class="shop-details-grid">
+                    <!-- Main Information -->
+                    <div class="info-card">
+                        <h2 style="margin-top: 0;">🏪 Shop Details</h2>
+                        
+                        <div class="info-row">
+                            <span class="info-label">🏪 Shop Number</span>
+                            <span class="info-value">{{ doc.shop_number }}</span>
+                        </div>
+                        
+                        <div class="info-row">
+                            <span class="info-label">✈️ Airport</span>
+                            <span class="info-value">{{ doc.airport or 'N/A' }}</span>
+                        </div>
+                        
+                        <div class="info-row">
+                            <span class="info-label">📍 Location</span>
+                            <span class="info-value">{{ doc.rent_location or 'N/A' }}</span>
+                        </div>
+                        
+                        <div class="info-row">
+                            <span class="info-label">📏 Area</span>
+                            <span class="info-value">{{ doc.area or 'N/A' }}{% if doc.area %} sqft{% endif %}</span>
+                        </div>
+                        
+                        <div class="info-row">
+                            <span class="info-label">💰 Monthly Rent</span>
+                            <span class="info-value">{% if doc.base_rent %}₹{{ "{:,.0f}".format(doc.base_rent|float) }}{% else %}N/A{% endif %}</span>
+                        </div>
+                        
+                        <div class="info-row">
+                            <span class="info-label">Status</span>
+                            <span class="info-value">
+                                {% set status_class = 'status-available' if doc.status == 'Available' else ('status-occupied' if doc.status == 'Occupied' else 'status-maintenance') %}
+                                <span class="status-badge {{ status_class }}">{{ doc.status or 'N/A' }}</span>
+                            </span>
+                        </div>
+
+                        {% if doc.status == 'Available' %}
+                            <a href="/shop-lead-form/new?shop={{ doc.name }}" class="button" style="display: block; text-align: center; margin-top: 1.5em;">📝 Inquire About This Shop</a>
+                        {% endif %}
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div>
+                        {% if lease %}
+                            <div class="lease-section">
+                                <h3 style="margin-top: 0;">📋 Active Lease Information</h3>
+                                <div class="info-row">
+                                    <span class="info-label">👤 Tenant</span>
+                                    <span class="info-value">{{ lease.tenant_name or lease.tenant }}</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">📅 Start Date</span>
+                                    <span class="info-value">{{ lease.lease_start_date or 'N/A' }}</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">⏰ End Date</span>
+                                    <span class="info-value">{{ lease.lease_end_date or 'N/A' }}</span>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </main>
+    {% else %}
+        <main class="main-content">
+            <div class="content-container">
+                <div style="text-align: center; padding: 3em;">
+                    <p style="font-size: 1.5em;">Shop not found</p>
+                    <a href="/shop" class="button">Back to Shop Listing</a>
+                </div>
+            </div>
+        </main>
+    {% endif %}
+
+    <footer class="footer">
+        <p>&copy; 2025 Airport Shop Management. All rights reserved.</p>
+    </footer>
+</body>
+</html>

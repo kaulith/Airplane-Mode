@@ -1,22 +1,35 @@
 {
  "actions": [],
+ "allow_guest_to_view": 1,
  "allow_rename": 1,
- "autoname": "format:{shop_name}-{shop_number}",
+ "autoname": "SHOP-.#####",
  "creation": "2025-12-17 15:19:53.696741",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "shop_section",
+  "shop_detail_section",
   "shop_number",
-  "shop_name",
-  "status",
-  "rent",
-  "location",
-  "shop_type",
-  "column_break_rocc",
   "airport",
+  "floor",
+  "column_break_wdbs",
+  "shop_name",
+  "terminal",
+  "zone",
+  "geometry_section",
+  "shop_area",
+  "column_break_avxq",
   "area",
-  "location_of_shop"
+  "classification_section",
+  "shop_type",
+  "column_break_exdq",
+  "rent_location",
+  "operational_status_section",
+  "status",
+  "column_break_hzcx",
+  "route",
+  "is_published",
+  "rent_section",
+  "base_rent"
  ],
  "fields": [
   {
@@ -28,22 +41,20 @@
   },
   {
    "description": "sq ft",
+   "fetch_from": "shop_area.calculated_area",
    "fieldname": "area",
    "fieldtype": "Float",
    "in_list_view": 1,
-   "label": "Area "
+   "label": "Area ",
+   "read_only": 1
   },
   {
+   "default": "Available",
    "fieldname": "status",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Status",
-   "options": "Available\nOccupied\nUnder Maintenance"
-  },
-  {
-   "fieldname": "shop_section",
-   "fieldtype": "Section Break",
-   "label": "Shop"
+   "options": "Available\nOccupied\nUnder Maintenance\nClosed"
   },
   {
    "fieldname": "shop_number",
@@ -58,35 +69,104 @@
    "label": "Shop Name"
   },
   {
-   "fieldname": "rent",
-   "fieldtype": "Currency",
-   "label": "Rent"
-  },
-  {
-   "fieldname": "location_of_shop",
-   "fieldtype": "Geolocation",
-   "label": "Geo Location"
-  },
-  {
-   "fieldname": "column_break_rocc",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "location",
-   "fieldtype": "Small Text",
-   "label": "Location"
-  },
-  {
    "fieldname": "shop_type",
    "fieldtype": "Link",
    "label": "Shop Type",
    "options": "Shop Type"
+  },
+  {
+   "fieldname": "terminal",
+   "fieldtype": "Data",
+   "label": "Terminal"
+  },
+  {
+   "fieldname": "floor",
+   "fieldtype": "Data",
+   "label": "Floor"
+  },
+  {
+   "fieldname": "zone",
+   "fieldtype": "Data",
+   "label": "Zone"
+  },
+  {
+   "fieldname": "shop_area",
+   "fieldtype": "Link",
+   "label": "Shop Area",
+   "options": "Shop Area",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_wdbs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "geometry_section",
+   "fieldtype": "Section Break",
+   "label": "Geometry"
+  },
+  {
+   "fieldname": "column_break_avxq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "classification_section",
+   "fieldtype": "Section Break",
+   "label": "Classification"
+  },
+  {
+   "fieldname": "column_break_exdq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "operational_status_section",
+   "fieldtype": "Section Break",
+   "label": "Operational Status"
+  },
+  {
+   "fieldname": "rent_location",
+   "fieldtype": "Select",
+   "label": "Rent Location",
+   "options": "Prime\nGate Side\nFood Court\nHigh Traffic\nStandard\nLow Traffic\nKiosk\nAnchor"
+  },
+  {
+   "fieldname": "column_break_hzcx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_published",
+   "fieldtype": "Check",
+   "label": "Is Published"
+  },
+  {
+   "fieldname": "shop_detail_section",
+   "fieldtype": "Section Break",
+   "label": "Shop Detail"
+  },
+  {
+   "fieldname": "rent_section",
+   "fieldtype": "Section Break",
+   "label": "Rent"
+  },
+  {
+   "fieldname": "base_rent",
+   "fieldtype": "Currency",
+   "label": "Base Rent",
+   "options": "Shop"
   }
  ],
  "grid_page_length": 50,
+ "has_web_view": 1,
  "index_web_pages_for_search": 1,
+ "is_published_field": "is_published",
  "links": [],
- "modified": "2025-12-21 20:45:23.375647",
+ "modified": "2026-01-05 11:21:20.916528",
  "modified_by": "Administrator",
  "module": "Airport Shop Management",
  "name": "Shop",
@@ -106,6 +186,7 @@
    "write": 1
   }
  ],
+ "route": "shop",
  "row_format": "Dynamic",
  "rows_threshold_for_grid_search": 20,
  "sort_field": "modified",
