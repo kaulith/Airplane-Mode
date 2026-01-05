@@ -14,7 +14,7 @@ def get_columns():
 			"fieldname": "airport",
 			"label": "Airport",
 			"fieldtype": "Link",
-			"options": "Airplane",
+			"options": "Airport",
 			"width": 200
 		},
 		{
@@ -50,23 +50,25 @@ def get_columns():
 	]
 
 def get_data(filters):
-	data = frappe.db.sql("""
+	airport_filter = ""
+	if filters and filters.get("airport"):
+		airport_filter = f"WHERE a.name = '{filters['airport']}'"
+
+	data = frappe.db.sql(f"""
 		SELECT 
-			airport,
-			COUNT(*) as total_shops,
-			SUM(CASE WHEN status = 'Occupied' THEN 1 ELSE 0 END) as occupied,
-			SUM(CASE WHEN status = 'Available' THEN 1 ELSE 0 END) as available,
-			SUM(CASE WHEN status = 'Under Maintenance' THEN 1 ELSE 0 END) as under_maintenance
-		FROM `tabShop`
-		WHERE airport IS NOT NULL
-		GROUP BY airport
-		ORDER BY airport
+			a.name as airport,
+			COUNT(s.name) as total_shops,
+			SUM(CASE WHEN s.status = 'Occupied' THEN 1 ELSE 0 END) as occupied,
+			SUM(CASE WHEN s.status = 'Available' THEN 1 ELSE 0 END) as available,
+			SUM(CASE WHEN s.status = 'Under Maintenance' THEN 1 ELSE 0 END) as under_maintenance
+		FROM `tabAirport` a
+		LEFT JOIN `tabShop` s ON a.name = s.airport
+		{airport_filter}
+		GROUP BY a.name
+		ORDER BY a.name
 	""", as_dict=1)
 
 	for row in data:
-		if row.total_shops > 0:
-			row.occupancy_rate = (row.occupied / row.total_shops) * 100
-		else:
-			row.occupancy_rate = 0
+		row.occupancy_rate = (row.occupied / row.total_shops * 100) if row.total_shops > 0 else 0
 
 	return data

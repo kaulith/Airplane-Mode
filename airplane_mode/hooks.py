@@ -6,7 +6,12 @@ app_email = "kaushal@test.com"
 app_license = "mit"
 
 fixtures = [
-    {"doctype": "Web Form"},
+	{
+		"dt": "Print Format",
+		"filters": [
+		["name", "=", "Rent Receipt"]
+		]
+    },
     {
         "dt": "Shop Type",
         "filters": [
@@ -169,8 +174,10 @@ scheduler_events = {
 	# 	"airplane_mode.tasks.all"
 	# ],
 	"daily": [
-		"airplane_mode.airport_shop_management.doctype.rent_payment_schedule.rent_payment_schedule.send_rent_reminders"
-	  ],
+        "airplane_mode.tasks.update_shop_status_on_contract_expiry",
+        "airplane_mode.tasks.send_rent_reminders",
+        "airplane_mode.tasks.update_rent_status"
+    ],
 	# "hourly": [
 	# 	"airplane_mode.tasks.hourly"
 	# ],
