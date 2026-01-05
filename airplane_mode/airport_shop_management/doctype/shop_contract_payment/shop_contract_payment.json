@@ -1,0 +1,119 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-12-26 14:57:15.819455",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "identity_section",
+  "payment_month",
+  "column_break_cgkz",
+  "due_date",
+  "financial_section",
+  "amount_due",
+  "amount_paid",
+  "column_break_nfxs",
+  "payment_date",
+  "status",
+  "section_break_gkji",
+  "rent_payment",
+  "column_break_zlno",
+  "pay"
+ ],
+ "fields": [
+  {
+   "fieldname": "identity_section",
+   "fieldtype": "Section Break",
+   "label": "Identity"
+  },
+  {
+   "fieldname": "payment_month",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Payment Month"
+  },
+  {
+   "fieldname": "column_break_cgkz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Due Date"
+  },
+  {
+   "fieldname": "financial_section",
+   "fieldtype": "Section Break",
+   "label": "Financial"
+  },
+  {
+   "fieldname": "amount_due",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount Due"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "amount_paid",
+   "fieldtype": "Currency",
+   "label": "Amount Paid"
+  },
+  {
+   "fieldname": "column_break_nfxs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "payment_date",
+   "fieldtype": "Date",
+   "label": "Payment Date"
+  },
+  {
+   "default": "Planned",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Planned\nDue\nPaid\nOverdue\nCancelled"
+  },
+  {
+   "fieldname": "section_break_gkji",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "pay",
+   "fieldtype": "Button",
+   "in_list_view": 1,
+   "label": "Pay",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "rent_payment",
+   "fieldtype": "Data",
+   "label": "Rent Payment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_zlno",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-01-05 16:12:00.165397",
+ "modified_by": "Administrator",
+ "module": "Airport Shop Management",
+ "name": "Shop Contract Payment",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
