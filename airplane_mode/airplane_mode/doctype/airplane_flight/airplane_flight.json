@@ -39,6 +39,57 @@
    "reqd": 1
   },
   {
+   "fieldname": "column_break_ajag",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Scheduled",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Scheduled\nCompleted\nCancelled"
+  },
+  {
+   "fieldname": "airplane_details_section",
+   "fieldtype": "Section Break",
+   "label": "Airplane Details"
+  },
+  {
+   "fieldname": "source_airport",
+   "fieldtype": "Link",
+   "label": "Source Airport",
+   "options": "Airport",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "source_airport.code",
+   "fieldname": "source_airport_code",
+   "fieldtype": "Data",
+   "label": " Source Airport Code"
+  },
+  {
+   "fieldname": "column_break_qita",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "destination_airport",
+   "fieldtype": "Link",
+   "label": "Destination Airport ",
+   "options": "Airport",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "destination_airport.code",
+   "fieldname": "destination_airport_code",
+   "fieldtype": "Data",
+   "label": "Destination Airport Code"
+  },
+  {
+   "fieldname": "departure_details_section",
+   "fieldtype": "Section Break",
+   "label": "Departure Details"
+  },
+  {
    "fieldname": "date_of_departure",
    "fieldtype": "Date",
    "in_list_view": 1,
@@ -53,59 +104,21 @@
    "reqd": 1
   },
   {
-   "default": "Scheduled",
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "Scheduled\nCompleted\nCancelled"
-  },
-  {
-   "fieldname": "source_airport",
-   "fieldtype": "Link",
-   "label": "Source Airport",
-   "options": "Airport",
-   "reqd": 1
-  },
-  {
-   "fieldname": "destination_airport",
-   "fieldtype": "Link",
-   "label": "Destination Airport ",
-   "options": "Airport",
-   "reqd": 1
-  },
-  {
-   "fetch_from": "source_airport.code",
-   "fieldname": "source_airport_code",
-   "fieldtype": "Data",
-   "label": " Source Airport Code"
-  },
-  {
-   "fetch_from": "destination_airport.code",
-   "fieldname": "destination_airport_code",
-   "fieldtype": "Data",
-   "label": "Destination Airport Code"
-  },
-  {
-   "fieldname": "column_break_ajag",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "airplane_details_section",
-   "fieldtype": "Section Break",
-   "label": "Airplane Details"
-  },
-  {
-   "fieldname": "column_break_qita",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "departure_details_section",
-   "fieldtype": "Section Break",
-   "label": "Departure Details"
-  },
-  {
    "fieldname": "column_break_eamd",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "time_of_departure",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Time of Departure",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gate_number",
+   "fieldtype": "Link",
+   "label": "Gate Number",
+   "options": "Gate Number"
   },
   {
    "fieldname": "section_break_mhew",
@@ -115,8 +128,7 @@
   {
    "fieldname": "route",
    "fieldtype": "Data",
-   "label": "Route",
-   "unique": 1
+   "label": "Route"
   },
   {
    "fieldname": "column_break_kfst",
@@ -129,13 +141,6 @@
    "label": "Is Published"
   },
   {
-   "fieldname": "time_of_departure",
-   "fieldtype": "Time",
-   "in_list_view": 1,
-   "label": "Time of Departure",
-   "reqd": 1
-  },
-  {
    "fieldname": "crew_members_section",
    "fieldtype": "Section Break",
    "label": "Crew Members"
@@ -145,11 +150,6 @@
    "fieldtype": "Table",
    "label": "Flight Crew",
    "options": "Airplane Flight Crew Member"
-  },
-  {
-   "fieldname": "gate_number",
-   "fieldtype": "Data",
-   "label": "Gate Number"
   }
  ],
  "grid_page_length": 50,
@@ -162,7 +162,7 @@
    "link_fieldname": "flight"
   }
  ],
- "modified": "2025-12-18 13:17:21.843006",
+ "modified": "2025-12-24 20:45:58.578946",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Flight",
@@ -205,10 +205,12 @@
    "write": 1
   }
  ],
- "route": "route",
+ "route": "flights",
  "row_format": "Dynamic",
  "rows_threshold_for_grid_search": 20,
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "airplane"
 }
