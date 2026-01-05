@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:CONTRACT-{####}",
+ "autoname": "LEASE-.####",
  "creation": "2025-12-17 15:57:31.598807",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -12,19 +12,14 @@
   "column_break_auce",
   "tenant_name",
   "phone",
-  "contract_details_section",
+  "date_section",
   "start_date",
   "status",
-  "column_break_eckr",
+  "column_break_fydk",
   "end_date",
-  "payment_due_day",
-  "shops_section",
-  "shop",
-  "rent_details_section",
-  "total_base_rent",
-  "column_break_shiy",
-  "monthly_rent",
-  "amended_from"
+  "amended_from",
+  "leased_shop_section_section",
+  "leased_shop"
  ],
  "fields": [
   {
@@ -66,63 +61,30 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "contract_details_section",
-   "fieldtype": "Section Break",
-   "label": "Contract Details"
-  },
-  {
    "fieldname": "start_date",
    "fieldtype": "Date",
-   "label": "Start Date",
-   "reqd": 1
+   "label": "Start Date "
   },
   {
    "fieldname": "end_date",
    "fieldtype": "Date",
-   "label": "End Date",
-   "reqd": 1
+   "label": "End Date"
   },
   {
-   "default": "Draft",
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Draft\nActive\nExpired\nCancelled"
-  },
-  {
-   "fieldname": "column_break_eckr",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "shops_section",
-   "fieldtype": "Section Break",
-   "label": "Shops"
-  },
-  {
-   "fieldname": "rent_details_section",
-   "fieldtype": "Section Break",
-   "label": "Rent Details"
-  },
-  {
-   "fieldname": "total_base_rent",
-   "fieldtype": "Currency",
-   "label": "Total Base Rent",
+   "options": "Draft\nActive\nCancelled",
    "read_only": 1
   },
   {
-   "fieldname": "monthly_rent",
-   "fieldtype": "Currency",
-   "label": "Monthly Rent"
+   "fieldname": "date_section",
+   "fieldtype": "Section Break",
+   "label": "Date"
   },
   {
-   "fieldname": "column_break_shiy",
+   "fieldname": "column_break_fydk",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "shop",
-   "fieldtype": "Table",
-   "label": "Shop",
-   "options": "Shop Lease Contract"
   },
   {
    "fieldname": "amended_from",
@@ -135,20 +97,26 @@
    "search_index": 1
   },
   {
-   "fieldname": "payment_due_day",
-   "fieldtype": "Int",
-   "label": "Payment Due Day"
+   "fieldname": "leased_shop_section_section",
+   "fieldtype": "Section Break",
+   "label": "Leased Shop Section"
+  },
+  {
+   "fieldname": "leased_shop",
+   "fieldtype": "Table",
+   "label": "Leased Shop",
+   "options": "Shop Lease Item"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-12-19 15:53:23.630939",
+ "modified": "2025-12-26 15:28:58.653948",
  "modified_by": "Administrator",
  "module": "Airport Shop Management",
  "name": "Shop Lease",
- "naming_rule": "Expression",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
