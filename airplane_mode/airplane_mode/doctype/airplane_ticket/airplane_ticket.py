@@ -28,11 +28,13 @@ class AirplaneTicket(Document):
 
 		self.source_airport_code = flight.get("source_airport_code")
 		self.destination_airport_code = flight.get("destination_airport_code")
-		self.flight_price = flight.get("flight_price")
-		self.departure_date = flight.get("departure_date")
-		self.departure_time = flight.get("departure_time")
+		# Only set flight_price if not already entered by user
+		if not self.flight_price:
+			self.flight_price = flight.get("flight_price")
+		self.departure_date = flight.get("date_of_departure")
+		self.departure_time = flight.get("time_of_departure")
 		self.gate_number = flight.get("gate_number")
-		self.duration_of_flight = flight.get("duration_of_flight")
+		self.duration_of_flight = flight.get("duration")
 
 	def calculate_total(self):
 		addons_total = sum([d.amount for d in self.add_ons])

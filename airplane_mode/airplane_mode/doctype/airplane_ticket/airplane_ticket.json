@@ -6,25 +6,26 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "ticket_details_section",
   "passenger",
   "source_airport_code",
   "column_break_dqce",
   "flight",
   "destination_airport_code",
+  "departure_details_section",
+  "departure_date",
+  "duration_of_flight",
+  "gate_number",
+  "column_break_lwiz",
+  "departure_time",
+  "seat",
   "section_break_ctzc",
   "add_ons",
   "section_break_jkrh",
   "flight_price",
+  "amended_from",
   "column_break_bnle",
   "total_amount",
-  "departure_details_section",
-  "departure_date",
-  "departure_time",
-  "seat",
-  "gate_number",
-  "column_break_lwiz",
-  "duration_of_flight",
-  "amended_from",
   "status"
  ],
  "fields": [
@@ -65,19 +66,22 @@
    "fieldname": "departure_date",
    "fieldtype": "Date",
    "in_standard_filter": 1,
-   "label": "Departure Date"
+   "label": "Departure Date",
+   "allow_on_submit": 1
   },
   {
    "fetch_from": "flight.time_of_departure",
    "fieldname": "departure_time",
    "fieldtype": "Time",
-   "label": "Departure Time"
+   "label": "Departure Time",
+   "allow_on_submit": 1
   },
   {
    "fetch_from": "flight.duration",
    "fieldname": "duration_of_flight",
    "fieldtype": "Duration",
-   "label": "Duration of Flight"
+   "label": "Duration of Flight",
+   "allow_on_submit": 1
   },
   {
    "fieldname": "column_break_dqce",
@@ -113,8 +117,7 @@
   {
    "fieldname": "flight_price",
    "fieldtype": "Currency",
-   "label": "Flight Price",
-   "reqd": 1
+   "label": "Flight Price"
   },
   {
    "fieldname": "total_amount",
@@ -135,7 +138,8 @@
   },
   {
    "fieldname": "section_break_ctzc",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Add Ons"
   },
   {
    "fieldname": "section_break_jkrh",
@@ -150,13 +154,18 @@
    "fieldname": "gate_number",
    "fieldtype": "Data",
    "label": "Gate Number"
+  },
+  {
+   "fieldname": "ticket_details_section",
+   "fieldtype": "Section Break",
+   "label": "Ticket Details"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-12-19 13:14:22.626547",
+ "modified": "2025-12-23 12:39:53.970905",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Ticket",
