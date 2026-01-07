@@ -22,6 +22,8 @@
   "column_break_eamd",
   "time_of_departure",
   "gate_number",
+  "pricing_section",
+  "flight_price",
   "section_break_mhew",
   "route",
   "column_break_kfst",
@@ -119,6 +121,17 @@
    "fieldtype": "Link",
    "label": "Gate Number",
    "options": "Gate Number"
+  },
+  {
+   "fieldname": "pricing_section",
+   "fieldtype": "Section Break",
+   "label": "Pricing"
+  },
+  {
+   "fieldname": "flight_price",
+   "fieldtype": "Currency",
+   "label": "Flight Price",
+   "description": "Base price for this flight"
   },
   {
    "fieldname": "section_break_mhew",

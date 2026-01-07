@@ -7,7 +7,7 @@ frappe.query_reports["Shop Availability Report"] = {
 			"fieldname": "airport",
 			"label": __("Airport"),
 			"fieldtype": "Link",
-			"options": "Airplane"
+			"options": "Airport"
 		}
 	]
 };
