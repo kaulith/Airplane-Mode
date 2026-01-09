@@ -137,35 +137,42 @@
    "search_index": 1
   },
   {
+   "fetch_from": "shop.shop_number",
    "fieldname": "shop_number_snapshot",
    "fieldtype": "Data",
    "label": "Shop Number",
    "read_only": 1
   },
   {
+   "fetch_from": "shop.area",
    "fieldname": "shop_area_snapshot",
    "fieldtype": "Float",
    "label": "Shop Area",
    "read_only": 1
   },
   {
+   "fetch_from": "shop.airport",
    "fieldname": "airport_snapshot",
    "fieldtype": "Data",
-   "label": "Airport"
+   "label": "Airport",
+   "read_only": 1
   },
   {
+   "fetch_from": "shop.shop_name",
    "fieldname": "shop_name_snapshot",
    "fieldtype": "Data",
    "label": "Shop Name",
    "read_only": 1
   },
   {
+   "fetch_from": "shop.shop_type",
    "fieldname": "shop_type_snapshot",
    "fieldtype": "Data",
    "label": "Shop Type",
    "read_only": 1
   },
   {
+   "fetch_from": "shop.rent_location",
    "fieldname": "rent_location_snapshot",
    "fieldtype": "Data",
    "label": "Rent Location",
@@ -220,7 +227,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-01-05 16:02:11.474339",
+ "modified": "2026-01-07 17:22:54.853224",
  "modified_by": "Administrator",
  "module": "Airport Shop Management",
  "name": "Shop Contract",
