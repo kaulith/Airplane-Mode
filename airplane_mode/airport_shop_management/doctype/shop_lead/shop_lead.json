@@ -7,16 +7,14 @@
  "engine": "InnoDB",
  "field_order": [
   "shop",
-  "lead_name",
+  "full_name",
   "email",
   "phone",
   "company_name",
-  "business_type",
-  "follow_up_date",
-  "company_website",
+  "status",
   "column_break_ujpl",
-  "message",
-  "status"
+  "address",
+  "tenant"
  ],
  "fields": [
   {
@@ -25,13 +23,6 @@
    "in_list_view": 1,
    "label": "Shop",
    "options": "Shop",
-   "reqd": 1
-  },
-  {
-   "fieldname": "lead_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Lead Name",
    "reqd": 1
   },
   {
@@ -53,41 +44,40 @@
    "label": "Company Name"
   },
   {
-   "fieldname": "business_type",
-   "fieldtype": "Data",
-   "label": "Business Type"
-  },
-  {
-   "fieldname": "company_website",
-   "fieldtype": "Data",
-   "label": "Company Website"
-  },
-  {
-   "fieldname": "message",
-   "fieldtype": "Text Editor",
-   "label": "Message"
-  },
-  {
    "default": "New",
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "New\nContacted\nInterested\nNot Interested"
-  },
-  {
-   "fieldname": "follow_up_date",
-   "fieldtype": "Date",
-   "label": "Follow Up Date"
+   "options": "New\nContacted\nQualified\nConverted\nNot Interested"
   },
   {
    "fieldname": "column_break_ujpl",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Full Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Address"
+  },
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "label": "Tenant",
+   "options": "Shop Tenant",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-05 16:54:23.210793",
+ "modified": "2026-01-09 13:18:22.466406",
  "modified_by": "Administrator",
  "module": "Airport Shop Management",
  "name": "Shop Lead",
