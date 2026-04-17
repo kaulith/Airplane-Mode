@@ -2,6 +2,7 @@
 # For license information, please see license.txt
 
 import frappe
+from frappe import _
 from frappe.model.document import Document
 
 
@@ -15,14 +16,14 @@ def convert_to_tenant(lead_name):
 
 	# Check if already converted
 	if lead.get("tenant"):
-		frappe.throw(f"This lead has already been converted to Tenant: {lead.tenant}")
+		frappe.throw(_("This lead has already been converted to Tenant: {0}").format(lead.tenant))
 
 	if lead.status == "Converted":
-		frappe.throw("This lead has already been converted")
+		frappe.throw(_("This lead has already been converted"))
 
 	# Validate required fields
 	if not lead.company_name:
-		frappe.throw("Company Name is required to convert to tenant")
+		frappe.throw(_("Company Name is required to convert to tenant"))
 
 	# Create new tenant
 	from frappe.utils import strip_html_tags

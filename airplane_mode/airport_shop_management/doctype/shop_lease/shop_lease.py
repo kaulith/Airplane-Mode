@@ -2,6 +2,7 @@
 # For license information, please see license.txt
 
 import frappe
+from frappe import _
 from frappe.model.document import Document
 from frappe.utils import add_months, get_last_day, getdate
 
@@ -18,7 +19,7 @@ class ShopLease(Document):
 
 		for row in self.leased_shop:
 			if row.shop in seen:
-				frappe.throw(f"Shop {row.shop} is duplicated in lease")
+				frappe.throw(_("Shop {0} is duplicated in lease").format(row.shop))
 
 			seen.add(row.shop)
 
@@ -32,7 +33,7 @@ class ShopLease(Document):
 			)
 
 			if active:
-				frappe.throw(f"Shop {row.shop} is already leased")
+				frappe.throw(_("Shop {0} is already leased").format(row.shop))
 
 	def create_contracts_on_submit(self):
 		create_contracts(self.name)
@@ -43,10 +44,10 @@ def create_contracts(lease):
 	lease_doc = frappe.get_doc("Shop Lease", lease)
 
 	if lease_doc.docstatus != 1:
-		frappe.throw("Lease must be submitted before creating contracts")
+		frappe.throw(_("Lease must be submitted before creating contracts"))
 
 	if not lease_doc.leased_shop:
-		frappe.throw("No shops selected in this lease")
+		frappe.throw(_("No shops selected in this lease"))
 
 	for row in lease_doc.leased_shop:
 		# Avoid duplicates
@@ -84,5 +85,3 @@ def create_contracts(lease):
 		contract.monthly_rent = shop.base_rent
 
 		contract.insert()
-
-	frappe.db.commit()

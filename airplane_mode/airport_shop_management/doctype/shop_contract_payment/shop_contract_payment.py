@@ -2,6 +2,7 @@
 # For license information, please see license.txt
 
 import frappe
+from frappe import _
 from frappe.model.document import Document
 
 
@@ -13,4 +14,4 @@ class ShopContractPayment(Document):
 			if old_doc and old_doc.status == "Paid":
 				# Allow only cancellation of paid rows
 				if self.status != "Paid":
-					frappe.throw("Cannot modify a paid payment row. Please cancel the related Rent Payment first.")
+					frappe.throw(_("Cannot modify a paid payment row. Please cancel the related Rent Payment first."))

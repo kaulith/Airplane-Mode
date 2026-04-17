@@ -1,8 +1,10 @@
 # Copyright (c) 2025, Kaushal and contributors
 # For license information, please see license.txt
 import frappe
+from frappe import _
 from frappe.model.document import Document
-from frappe.utils import add_months, getdate, today, get_last_day
+from frappe.utils import add_months, get_last_day, getdate, today
+
 
 class ShopContract(Document):
     def validate(self):
@@ -16,12 +18,12 @@ class ShopContract(Document):
             })
 
             if overdue:
-                frappe.throw("Tenant has overdue rent. Cannot create new contract.")
+                frappe.throw(_("Tenant has overdue rent. Cannot create new contract."))
 
     def validate_dates(self):
         if self.contract_start_date and self.contract_end_date:
             if getdate(self.contract_start_date) > getdate(self.contract_end_date):
-                frappe.throw("Start date can't be after end date")
+                frappe.throw(_("Start date can't be after end date"))
 
     def validate_shop_availability(self):
         if not self.shop:
@@ -33,7 +35,7 @@ class ShopContract(Document):
             "name": ["!=", self.name]
         })
         if active:
-            frappe.throw(f"Shop {self.shop} is already under an active contract")
+            frappe.throw(_("Shop {0} is already under an active contract").format(self.shop))
 
 
     def before_submit(self):
@@ -88,7 +90,7 @@ class ShopContract(Document):
     def cancel_future_payments(self):
         for row in self.shop_contract_payment:
             if row.status in ("Planned", "Due"):
-                row.status = "Cancelled"
+                frappe.db.set_value("Shop Contract Payment", row.name, "status", "Cancelled")
 
 
     def get_due_date(self, base_date, due_day):

@@ -2,6 +2,7 @@
 # For license information, please see license.txt
 
 import frappe
+from frappe import _
 from frappe.model.document import Document
 from frappe.utils import getdate, today
 
@@ -11,10 +12,10 @@ class RentPayment(Document):
 		contract = frappe.get_doc("Shop Contract", self.shop_contract)
 
 		if contract.status in ["Cancelled", "Expired"]:
-			frappe.throw("This contract is not active")
+			frappe.throw(_("This contract is not active"))
 
 		if contract.rent_status == "Completed":
-			frappe.throw("This contract has no outstanding rent")
+			frappe.throw(_("This contract has no outstanding rent"))
 
 		if self.payment_item:
 			existing = frappe.db.exists(
@@ -26,7 +27,7 @@ class RentPayment(Document):
 				},
 			)
 			if existing:
-				frappe.throw(f"A payment already exists for this period: {existing}")
+				frappe.throw(_("A payment already exists for this period: {0}").format(existing))
 
 	def on_submit(self):
 		self.apply_payment()
@@ -38,10 +39,10 @@ class RentPayment(Document):
 		item = frappe.get_doc("Shop Contract Payment", self.payment_item)
 
 		if item.status == "Paid":
-			frappe.throw("This month is already paid")
+			frappe.throw(_("This month is already paid"))
 
 		if item.status == "Cancelled":
-			frappe.throw("This payment period is cancelled")
+			frappe.throw(_("This payment period is cancelled"))
 
 		item.amount_paid = self.amount_paid
 		item.payment_date = self.payment_date
