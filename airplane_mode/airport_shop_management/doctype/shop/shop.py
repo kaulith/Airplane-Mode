@@ -4,29 +4,32 @@
 import frappe
 from frappe.website.website_generator import WebsiteGenerator
 
+
 class Shop(WebsiteGenerator):
     def validate(self):
         super().validate()
-        
+
         if self.shop_area:
             area = frappe.db.get_value("Shop Area", self.shop_area, "calculated_area")
             self.area = area
-        
+
         # Auto-fill base_rent with default_rent_amount if empty
         if not self.base_rent:
             settings = frappe.get_single("Shop Settings")
             self.base_rent = settings.default_rent_amount or 0
-    
     def get_context(self, context):
-        # Add lease information if the shop is occupied
+        # Add contract information if the shop is occupied
         if self.status == "Occupied":
-            leases = frappe.get_all(
-                "Shop Lease",
+            contracts = frappe.get_all(
+                "Shop Contract",
                 filters={"shop": self.name, "status": "Active"},
-                fields=["name", "tenant", "tenant_name", "lease_start_date", "lease_end_date"],
+                fields=["name", "tenant", "contract_start_date", "contract_end_date", "monthly_rent"],
                 limit_page_length=1
             )
-            if leases:
-                context["lease"] = leases[0]
-        
+            if contracts:
+                contract = contracts[0]
+                tenant_name = frappe.db.get_value("Shop Tenant", contract.tenant, "tenant_name")
+                contract["tenant_name"] = tenant_name
+                context["lease"] = contract
+
         return context

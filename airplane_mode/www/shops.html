@@ -236,7 +236,7 @@
         var allShops = [];
         var filteredShops = [];
         try {
-            allShops = JSON.parse('{{ shops_json | safe }}');
+            allShops = {{ shops | tojson | default('[]', true) }};
             if (!Array.isArray(allShops)) allShops = [];
             filteredShops = [...allShops];
         } catch(e) {
