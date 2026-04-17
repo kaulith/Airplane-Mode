@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "naming_series:[naming_series]",
+ "autoname": "format:CRW-{YYYY}-{#####}",
  "creation": "2025-12-17 12:13:29.723939",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -14,8 +14,7 @@
   "last_name",
   "designation",
   "airline",
-  "status",
-  "naming_series"
+  "status"
  ],
  "fields": [
   {
@@ -74,14 +73,6 @@
   {
    "fieldname": "column_break_hxnq",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "naming_series",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Naming Series",
-   "options": "CRW-.YYYY.-.##### ",
-   "read_only": 1
   }
  ],
  "grid_page_length": 50,
@@ -91,7 +82,7 @@
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Crew Member",
- "naming_rule": "By \"Naming Series\" field",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -109,7 +100,9 @@
  ],
  "row_format": "Dynamic",
  "rows_threshold_for_grid_search": 20,
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "full_name"
 }
