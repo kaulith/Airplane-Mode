@@ -28,8 +28,10 @@
   {
    "fieldname": "shop_contract",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Shop Contract",
-   "options": "Shop Contract"
+   "options": "Shop Contract",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_luce",
@@ -39,13 +41,15 @@
    "fieldname": "tenant",
    "fieldtype": "Link",
    "label": "Tenant",
-   "options": "Shop Tenant"
+   "options": "Shop Tenant",
+   "reqd": 1
   },
   {
    "fieldname": "payment_item",
    "fieldtype": "Link",
    "label": "Payment Item",
-   "options": "Shop Contract Payment"
+   "options": "Shop Contract Payment",
+   "reqd": 1
   },
   {
    "fieldname": "payment_section",

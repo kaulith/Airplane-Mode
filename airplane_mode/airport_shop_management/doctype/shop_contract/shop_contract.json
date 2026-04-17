@@ -62,7 +62,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Draft\nActive\nExpired\nCacelled"
+   "options": "Draft\nActive\nExpired\nCancelled"
   },
   {
    "fieldname": "column_break_ltvn",
