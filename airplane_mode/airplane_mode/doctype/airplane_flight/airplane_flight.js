@@ -3,6 +3,11 @@
 
 frappe.ui.form.on("Airplane Flight", {
 	refresh(frm) {
+		let dep_field = frm.fields_dict.date_of_departure;
+		if (dep_field.datepicker) {
+			dep_field.datepicker.update("minDate", new Date());
+		}
+
 		// Set filter for crew member field to show only active crew
 		frm.set_query('crew_member', 'flight_crew', function(doc, cdt, cdn) {
 			return {
