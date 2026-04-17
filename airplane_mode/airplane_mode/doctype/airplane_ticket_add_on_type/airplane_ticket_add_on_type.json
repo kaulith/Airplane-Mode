@@ -39,11 +39,8 @@
    "write": 1
   },
   {
-   "create": 1,
-   "delete": 1,
    "read": 1,
-   "role": "Fleet Manager",
-   "write": 1
+   "role": "Fleet Manager"
   },
   {
    "create": 1,
@@ -57,10 +54,8 @@
    "role": "Travel Agent"
   },
   {
-   "create": 1,
    "read": 1,
-   "role": "Flight Crew Member",
-   "write": 1
+   "role": "Flight Crew Member"
   }
  ],
  "row_format": "Dynamic",

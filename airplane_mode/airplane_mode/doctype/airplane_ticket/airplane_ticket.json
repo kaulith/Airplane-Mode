@@ -204,6 +204,10 @@
    "read": 1,
    "role": "Flight Crew Member",
    "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Fleet Manager"
   }
  ],
  "row_format": "Dynamic",

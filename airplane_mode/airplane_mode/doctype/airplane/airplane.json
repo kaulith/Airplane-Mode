@@ -54,11 +54,10 @@
   },
   {
    "default": "0",
-   "depends_on": "frappe.user_roles.includes(\"Airport Authority Personnel\");",
    "fieldname": "initial_audit_completed",
    "fieldtype": "Check",
    "label": "Initial Audit Completed",
-   "read_only_depends_on": "eval:!frappe.user_roles.includes(\"Airport Authority Personnel\")"
+   "permlevel": 1
   }
  ],
  "grid_page_length": 50,
@@ -97,6 +96,12 @@
   {
    "create": 1,
    "delete": 1,
+   "read": 1,
+   "role": "Airport Authority Personnel",
+   "write": 1
+  },
+  {
+   "permlevel": 1,
    "read": 1,
    "role": "Airport Authority Personnel",
    "write": 1
