@@ -10,15 +10,16 @@ class AirplaneTicket(Document):
 		self.update_flight_details()
 		self.remove_duplicate_addons()
 		self.calculate_total()
-		self.check_capacity()
 
 	def before_insert(self):
-		capital_alphabets = [chr(i) for i in range(ord("A"), ord("E") + 1)]
-		self.seat = f"{random.randint(1, 100)}{random.choice(capital_alphabets)}"
+		if not self.seat:
+			capital_alphabets = [chr(i) for i in range(ord("A"), ord("E") + 1)]
+			self.seat = f"{random.randint(1, 100)}{random.choice(capital_alphabets)}"
+		self.check_capacity()
 
 	def before_submit(self):
 		if self.status != "Boarded":
-			frappe.throw("Cannot submit ticket unless status is 'Boarded'.")
+			frappe.throw(_("Cannot submit ticket unless status is 'Boarded'."))
 
 	def update_flight_details(self):
 		if not self.flight:
@@ -43,13 +44,22 @@ class AirplaneTicket(Document):
 	def remove_duplicate_addons(self):
 		seen = set()
 		unique = []
+		duplicates = []
 		for row in self.add_ons:
 			if row.item not in seen:
 				seen.add(row.item)
 				unique.append(row)
-		self.set("add_ons", [])
-		for row in unique:
-			self.append("add_ons", row)
+			else:
+				duplicates.append(row.item)
+		if duplicates:
+			self.set("add_ons", [])
+			for row in unique:
+				self.append("add_ons", row)
+			frappe.msgprint(
+				_("Removed duplicate add-ons: {0}").format(", ".join(duplicates)),
+				indicator="orange",
+				alert=True,
+			)
 
 	def check_capacity(self):
 		if not self.flight:
