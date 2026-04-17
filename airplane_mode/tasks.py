@@ -1,5 +1,6 @@
-import frappe
 from datetime import timedelta
+
+import frappe
 from frappe.utils import getdate, today
 
 
@@ -28,6 +29,7 @@ def send_rent_reminders():
 	days_before = settings.reminder_days_before or 3
 	target = getdate(today()) + timedelta(days=days_before)
 
+	#instead of ["!=", "Paid"] using "in" as prior one can scan "cancelled" & "Overdue" rows
 	items = frappe.get_all(
 		"Shop Contract Payment",
 		filters={"due_date": target, "status": ["in", ["Planned", "Due"]]},
@@ -47,10 +49,10 @@ def send_rent_reminders():
 
 
 def update_rent_status():
-	# Update payment row status based on dates
+	# Update payment row status based on dates (only non-terminal statuses)
 	rows = frappe.get_all(
 		"Shop Contract Payment",
-		filters={"status": ["!=", "Paid"]},
+		filters={"status": ["in", ["Planned", "Due"]]},
 		fields=["name", "due_date", "payment_month", "status"],
 	)
 
@@ -66,8 +68,12 @@ def update_rent_status():
 		if new_status != r.status:
 			frappe.db.set_value("Shop Contract Payment", r.name, "status", new_status)
 
-	# Update the parent contract rent_status based on child payments
-	contracts = frappe.get_all("Shop Contract", fields=["name"])
+	# Update rent_status only for active contracts (not expired/cancelled/completed)
+	contracts = frappe.get_all(
+		"Shop Contract",
+		filters={"status": "Active"},
+		fields=["name"],
+	)
 
 	for c in contracts:
 		children = frappe.get_all(
@@ -80,11 +86,9 @@ def update_rent_status():
 		if not children:
 			contract_status = "Active"
 		else:
-			# Get payments that should be paid by now (past and current)
-			now = getdate(today())
 			past_and_current = [p for p in children if getdate(p.due_date) <= now]
 
-			if children and all(p.status == "Paid" for p in children):
+			if all(p.status == "Paid" for p in children):
 				contract_status = "Completed"
 			elif any(p.status == "Overdue" for p in past_and_current):
 				contract_status = "Overdue"
