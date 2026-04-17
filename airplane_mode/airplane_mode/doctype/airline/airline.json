@@ -10,7 +10,7 @@
   "headquarters",
   "founding_year",
   "column_break_rbge",
-  "cutomer_care_number",
+  "customer_care_number",
   "website"
  ],
  "fields": [
@@ -21,10 +21,10 @@
    "non_negative": 1
   },
   {
-   "fieldname": "cutomer_care_number",
+   "fieldname": "customer_care_number",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Cutomer Care Number",
+   "label": "Customer Care Number",
    "reqd": 1
   },
   {
