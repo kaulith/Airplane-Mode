@@ -14,5 +14,3 @@ def execute():
 
         seat = f"{random.randint(1, 100)}{random.choice(letters)}"
         ticket.db_set("seat", seat)
-
-    frappe.db.commit()

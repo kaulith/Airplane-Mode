@@ -11,5 +11,3 @@ def execute():
 
     for airline_name, website in airlines.items():
         frappe.db.set_value("Airline", airline_name, "website", website, update_modified=False)
-
-    frappe.db.commit()
