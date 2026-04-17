@@ -50,12 +50,14 @@ def get_columns():
 	]
 
 def get_data(filters):
-	airport_filter = ""
+	conditions = ""
+	values = {}
 	if filters and filters.get("airport"):
-		airport_filter = f"WHERE a.name = '{filters['airport']}'"
+		conditions = "WHERE a.name = %(airport)s"
+		values["airport"] = filters["airport"]
 
-	data = frappe.db.sql(f"""
-		SELECT 
+	data = frappe.db.sql("""
+		SELECT
 			a.name as airport,
 			COUNT(s.name) as total_shops,
 			SUM(CASE WHEN s.status = 'Occupied' THEN 1 ELSE 0 END) as occupied,
@@ -63,10 +65,10 @@ def get_data(filters):
 			SUM(CASE WHEN s.status = 'Under Maintenance' THEN 1 ELSE 0 END) as under_maintenance
 		FROM `tabAirport` a
 		LEFT JOIN `tabShop` s ON a.name = s.airport
-		{airport_filter}
+		{conditions}
 		GROUP BY a.name
 		ORDER BY a.name
-	""", as_dict=1)
+	""".format(conditions=conditions), values=values, as_dict=1)
 
 	for row in data:
 		row.occupancy_rate = (row.occupied / row.total_shops * 100) if row.total_shops > 0 else 0

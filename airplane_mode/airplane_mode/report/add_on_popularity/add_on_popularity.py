@@ -27,18 +27,21 @@ def get_columns():
 def get_data(filters):
 	data = frappe.db.sql(
 		"""
-        SELECT 
-            item as add_on_type,
-            COUNT(*) as sold_count
-        FROM 
-            `tabAirplane Ticket Add-on Item`
-        WHERE
-            parenttype = 'Airplane Ticket'
-        GROUP BY 
-            item
-        ORDER BY 
-            sold_count DESC
-    """,
+		SELECT
+			addon.item as add_on_type,
+			COUNT(*) as sold_count
+		FROM
+			`tabAirplane Ticket Add-on Item` as addon
+		INNER JOIN `tabAirplane Ticket` as ticket
+			ON ticket.name = addon.parent
+		WHERE
+			addon.parenttype = 'Airplane Ticket'
+			AND ticket.docstatus = 1
+		GROUP BY
+			addon.item
+		ORDER BY
+			sold_count DESC
+		""",
 		as_dict=1,
 	)
 

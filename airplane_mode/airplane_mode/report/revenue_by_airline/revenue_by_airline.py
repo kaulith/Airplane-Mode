@@ -3,6 +3,8 @@
 
 import frappe
 from frappe import _
+from frappe.query_builder import DocType
+from frappe.query_builder.functions import Sum, Coalesce
 
 
 def execute(filters=None):
@@ -28,34 +30,29 @@ def get_columns():
 
 
 def get_data(filters):
-	airlines = frappe.get_all("Airline", fields=["name"])
+	Airline = DocType("Airline")
+	Airplane = DocType("Airplane")
+	Flight = DocType("Airplane Flight")
+	Ticket = DocType("Airplane Ticket")
 
-	data = []
-	total_revenue = 0
+	revenue_field = Coalesce(Sum(Ticket.total_amount), 0)
 
-	for airline in airlines:
-		revenue = frappe.db.sql(
-			"""
-            SELECT COALESCE(SUM(ticket.total_amount), 0) as revenue
-            FROM `tabAirplane Ticket` as ticket
-            INNER JOIN `tabAirplane Flight` as flight ON ticket.flight = flight.name
-            INNER JOIN `tabAirplane` as airplane ON flight.airplane = airplane.name
-            WHERE airplane.airline = %s
-            AND ticket.docstatus = 1
-        """,
-			(airline.name,),
-			as_dict=True,
+	query = (
+		frappe.qb.from_(Airline)
+		.left_join(Airplane).on(Airplane.airline == Airline.name)
+		.left_join(Flight).on(Flight.airplane == Airplane.name)
+		.left_join(Ticket).on(
+			(Ticket.flight == Flight.name) & (Ticket.docstatus == 1)
 		)
+		.select(
+			Airline.name.as_("airline"),
+			revenue_field.as_("revenue"),
+		)
+		.groupby(Airline.name)
+		.orderby(revenue_field, order=frappe.qb.desc)
+	)
 
-		airline_revenue = revenue[0].revenue if revenue else 0
-		total_revenue += airline_revenue
-
-		data.append({"airline": airline.name, "revenue": airline_revenue})
-
-	# Sort by revenue descending
-	data.sort(key=lambda x: x["revenue"], reverse=True)
-
-	return data
+	return query.run(as_dict=True)
 
 
 def get_chart_data(data):
