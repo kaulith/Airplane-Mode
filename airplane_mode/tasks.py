@@ -38,8 +38,8 @@ def send_rent_reminders():
 
 	# Send email to each tenant whose rent is due(before_due_day)
 	for item in items:
-		contract = frappe.get_doc("Shop Contract", item.parent)
-		tenant = frappe.get_doc("Shop Tenant", contract.tenant)
+		contract = frappe.get_doc("Shop Contract", item.parent) #fetch that contract to get tenant link
+		tenant = frappe.get_doc("Shop Tenant", contract.tenant) #fetch the tenant doc to get their email
 
 		frappe.sendmail(
 			recipients=tenant.email,

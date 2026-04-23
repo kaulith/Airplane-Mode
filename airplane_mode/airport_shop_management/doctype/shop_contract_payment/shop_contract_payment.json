@@ -71,6 +71,7 @@
    "label": "Payment Date"
   },
   {
+   "allow_on_submit": 1,
    "default": "Planned",
    "fieldname": "status",
    "fieldtype": "Select",
