@@ -8,11 +8,12 @@ frappe.ui.form.on("Airplane Flight", {
 			dep_field.datepicker.update("minDate", new Date());
 		}
 
-		// Set filter for crew member field to show only active crew
+		// Set filter for crew member field: active + belongs to flight's airline
 		frm.set_query('crew_member', 'flight_crew', function(doc, cdt, cdn) {
 			return {
 				filters: {
-					'status': 'Active'
+					'status': 'Active',
+					'airline': frm.doc.airline
 				}
 			};
 		});
