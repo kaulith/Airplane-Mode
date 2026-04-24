@@ -40,7 +40,7 @@ class ShopLease(Document):
 
 
 @frappe.whitelist()
-def create_contracts(lease):
+def create_contracts(lease: str) -> None:
 	lease_doc = frappe.get_doc("Shop Lease", lease)
 
 	if lease_doc.docstatus != 1:

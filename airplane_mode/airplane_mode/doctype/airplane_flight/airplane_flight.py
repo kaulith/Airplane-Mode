@@ -43,7 +43,13 @@ class AirplaneFlight(WebsiteGenerator):
 		)
 
 @frappe.whitelist()
-def get_active_crew_members(doctype, txt, searchterm, page_len, filters):
+def get_active_crew_members(
+	doctype: str,
+	txt: str,
+	searchterm: str,
+	page_len: int,
+	filters: dict,
+) -> list:
 	# Only show active crew members in the selection
 	return frappe.get_all(
 		"Crew Member",
@@ -53,7 +59,7 @@ def get_active_crew_members(doctype, txt, searchterm, page_len, filters):
 		limit_page_length=page_len
 	)
 
-def update_tickets_gate_number(flight_name, new_gate_number):
+def update_tickets_gate_number(flight_name: str, new_gate_number: str) -> None:
 	try:
 		tickets = frappe.get_all(
 			"Airplane Ticket",

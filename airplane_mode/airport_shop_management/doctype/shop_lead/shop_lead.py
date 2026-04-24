@@ -10,7 +10,7 @@ class ShopLead(Document):
 	pass
 
 @frappe.whitelist()
-def convert_to_tenant(lead_name):
+def convert_to_tenant(lead_name: str) -> str:
 	"""Convert a Shop Lead to a Shop Tenant"""
 	lead = frappe.get_doc("Shop Lead", lead_name)
 
